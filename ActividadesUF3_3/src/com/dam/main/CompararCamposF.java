@@ -1,0 +1,68 @@
+package com.dam.main;
+
+import java.util.Scanner;
+
+import com.dam.pojo.CampoFutbol;
+
+public class CompararCamposF {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("ingresa el nombre del campo 1");
+		String c1 = sc.nextLine();
+		
+		System.out.println("Ingresa el largo del campo");
+		double lC1 = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("Ingresa el ancho del campo");
+		double aC1 = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("Ingresa la capacidad de expectadores");
+		int capacidadC1 = Integer.parseInt(sc.nextLine());
+		
+		CampoFutbol campo1 = new CampoFutbol(lC1,aC1, capacidadC1);
+		
+		
+		
+		System.out.println("ingresa el nombre del campo 2");
+		String c2 = sc.nextLine();
+		
+		System.out.println("Ingresa el largo del campo 2");
+		double lC2 = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("Ingresa el ancho del campo 2");
+		double aC2 = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("Ingresa la capacidad de expectadores del campo 2");
+		int capacidadC2 = Integer.parseInt(sc.nextLine());
+		
+		CampoFutbol campo2 = new CampoFutbol(lC2,aC2, capacidadC2);
+		
+		
+		sc.close();
+		
+		
+		System.out.println("Datos campo1: " + campo1.toString());
+		System.out.println("Datos campo2: " + campo2.toString());
+		
+		//double areaC1 = campo1.area();  como estoy usando el metodo get para las comparaciones no me hace falta crear las variables
+		//double areaC2 = campo2.area();
+		//double perimetroC1 = campo1.perimetro();
+		//double perimetroC2 = campo2.perimetro();
+		
+		
+		//Esto me combiene mejor hacerlos con ifs
+		String mayorA = (campo1.area() > campo2.area())? "El campo " + c1 + " tiene mayor área.": "El campo " + c2 + " tiene mayor área" ;
+		String mayorP = (campo1.perimetro() > campo2.perimetro())? "El campo " + c1 + "tiene mayor perímetro." : "El campo " + c2 + " tiene mayor perímetro";
+		String mayorCap = (campo1.getCapacidad() > campo2.getCapacidad())? "El campo " + c1 + " tiene mayor capacidad." : "El campo " + c2 + " tiene mayor capacidad";
+		
+		System.out.println(mayorA);
+		System.out.println(mayorP);
+		System.out.println(mayorCap);
+		
+
+	}
+
+}

@@ -1,0 +1,63 @@
+package com.dam.main;
+
+import java.util.Scanner;
+
+import com.dam.pojo.Piramide;
+
+public class CompararPiramidesConUnMetodo {
+	
+	// Método dentro de la clase ejecutable.
+	// public: permite usarlo desde cualquier otra clase (no solo desde el main actual).
+	// static: indica que pertenece a la clase, no a un objeto específico.
+	// Piramide: tipo de valor que el método devolverá (retorno).
+	// crearPiramide: nombre del método.
+	// (Scanner sc, int numero): parámetros que recibe al ser llamado.
+	// Dentro del método va el código que se ejecutará al llamarlo.
+	// Como tiene un valor de retorno (Piramide), debe incluir un return que devuelva un objeto de ese tipo.
+	// Con 'new Piramide(...)' se crea y retorna un nuevo objeto de la clase POJO Piramide.
+	public static Piramide crearPiramide(Scanner sc, int numero) {
+	    System.out.println("Ingrese el nombre de la piramide " + numero + ", cuanto mide su lado y altura en centímetros.");
+	    String nombre = sc.nextLine();
+	    double lado = Double.parseDouble(sc.nextLine());
+	    double altura = Double.parseDouble(sc.nextLine());
+	    
+	    return new Piramide(nombre, lado, altura); // Crear y devolver el objeto Piramide.
+	}
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		Piramide p1 = crearPiramide(sc,1);//Uso el metodo que cree arriba para pedir todos los datos de la piramide
+		Piramide p2 = crearPiramide(sc,2);
+		
+		
+		sc.close();
+		
+		System.out.println(p1);//No hace falta poner el toStrin por que en el pojo es el único método que retorna una cadena de caracteres
+		System.out.println(p2);
+		
+		
+		double volumen1 = p1.volumen();
+		double volumen2 = p2.volumen();
+		
+
+		if (volumen1>volumen2) {
+			System.out.println("La piramide " + p1.getNombre() + " tiene mayor volumen.");
+		}else if(volumen1<volumen2) {
+			System.out.println("La piramide " + p2.getNombre() + " tiene mayor volumen.");
+		}else {
+			System.out.println("Ambas piramides tienen el mismo volumen.");
+		}
+		
+		if (p1.getAltura()>p2.getAltura()) {
+			System.out.println("La piramide " + p1.getNombre() + " tiene mayor altura.");
+		}else if (p1.getAltura()<p2.getAltura()) {
+			System.out.println("La piramide " + p2.getNombre() + " tiene mayor altura.");
+		}else {
+			System.out.println("Ambas piramides tienen la misma altura.");
+		}
+
+	}
+
+}

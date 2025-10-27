@@ -1,0 +1,24 @@
+package com.dam.ejcondicionales;
+
+import java.util.Scanner;
+
+public class ejercicio7 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Escribe la base");
+		double b = Double.parseDouble(sc.nextLine());
+		
+		System.out.println("Escriba el exponente");
+		double e = Double.parseDouble(sc.nextLine());
+		
+		
+		
+		
+		sc.close();
+
+	}
+
+}

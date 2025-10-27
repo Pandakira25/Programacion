@@ -1,0 +1,60 @@
+package com.dam.ejercicio3.main;
+
+import java.util.Scanner;
+
+import com.dam.ejercicio3.pojo.EquipoFutbol;
+
+public class CompararResultados {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		EquipoFutbol eF1 = extracted(sc,numEquipo);
+		
+		System.out.println("Ingrese el nombre del primer equipo, su ciudad, número de partidos ganados, numero de partidos perdidos, numero de partidos empatados");
+		String nombre2 = sc.nextLine();
+		String ciudad2= sc.nextLine();
+		int pg2 = Integer.parseInt(sc.nextLine());
+		int pp2 = Integer.parseInt(sc.nextLine());
+		int pe2 = Integer.parseInt(sc.nextLine());
+		
+		
+		EquipoFutbol eF2 = new EquipoFutbol(nombre2, ciudad2, pg2, pp2, pe2);
+		
+		sc.close();
+		
+		System.out.println(eF1.toString() + "\n" + eF2.toString());
+		
+		String mayorP;
+		
+		if (eF1.calcularPuntos()>eF2.calcularPuntos()) {
+			mayorP=eF1.getNombre() + " tiene más puntos ";
+		}else if (eF2.calcularPuntos() < eF2.calcularPuntos()) {
+			mayorP = eF2.getNombre() + " tiene más puntos";
+		}else {
+			mayorP = "Estan empatados";
+		}
+		
+		System.out.println(mayorP);
+		
+		
+		
+
+	}
+
+	private static EquipoFutbol extracted(Scanner sc, int numEquipo) {
+		System.out.println("Ingrese el nombre del primer equipo, su ciudad, número de partidos ganados, numero de partidos perdidos, numero de partidos empatados");
+		String nombre1 = sc.nextLine();
+		String ciudad1= sc.nextLine();
+		int pg1 = Integer.parseInt(sc.nextLine());
+		int pp1 = Integer.parseInt(sc.nextLine());
+		int pe1 = Integer.parseInt(sc.nextLine());
+		
+		
+		EquipoFutbol eF1 = new EquipoFutbol(nombre1, ciudad1, pg1, pp1, pe1);
+		return eF1;
+	}
+
+}

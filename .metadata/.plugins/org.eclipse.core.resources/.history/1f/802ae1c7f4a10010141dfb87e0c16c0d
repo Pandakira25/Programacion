@@ -1,0 +1,28 @@
+package com.dam.ejcondicionales;
+
+import java.util.Scanner;
+
+public class ejercicio10 {
+
+	public static void main(String[] args) {
+		
+Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Ingrese el resultado del dado");
+		int nd = Integer.parseInt(sc.nextLine());
+		
+		if (0 < nd && nd <= 6) {
+			
+			switch (nd) {
+			case 1
+			}
+			
+		}else {
+			System.out.println("error");
+		}
+		
+		sc.close();
+
+	}
+
+}

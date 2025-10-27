@@ -1,0 +1,17 @@
+package com.dam.ejif;
+
+import java.util.Scanner;
+
+public class Ejercicio_3 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		
+		
+		sc.close();
+
+	}
+
+}

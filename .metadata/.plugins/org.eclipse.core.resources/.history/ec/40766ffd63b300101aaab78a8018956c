@@ -1,0 +1,45 @@
+package com.dam.pojo;
+
+/*
+ * Crear una clase Piramide:
+
+- que tenga tres atributos nombre, lado (en centímetros) de la base cuadrángular, y altura (en centímetros)
+
+- añade los constructores y/o métodos de acceso que consideres. Intenta que no haya código que no se ejecute.
+
+- añade un método que calcule su volumen (area de la base x altura / 3) y devuelva su valor.
+ */
+
+public class Piramide {
+	
+	private String nombre;
+	private double lado;
+	private double altura;
+	
+	public Piramide () {}
+
+	public Piramide(String nombre, double lado, double altura) {
+		this.nombre = nombre;
+		this.lado = lado;
+		this.altura = altura;
+	}
+	
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
+	public double volumen () {
+		double volumen = ((lado * lado) * altura) / 3;
+		return volumen;
+	}
+	
+	
+	public String toString() {
+		String datos = "La informacion de la piramide " + nombre + " el: " + "Lado de la base cuatrangulár: " + lado + ".  Altura: " + altura;
+		return datos;
+	}
+	
+	
+
+}

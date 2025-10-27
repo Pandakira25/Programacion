@@ -1,0 +1,46 @@
+package com.dam.ejercicio2;
+
+import java.util.Scanner;
+
+/*
+ * Crea una clase, Ejercicio2, que solicite la cantidad de números enteros que se
+van a introducir. A continuación, solicite los números enteros positivos e
+imprima cuántos son múltiplos de 7 y cuántos divisores de 150.
+ */
+
+public class Ejercicio2 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("ingrese la cantidad de numeros a introducir");
+		int n = Integer.parseInt(sc.nextLine());
+		
+		int num;
+		
+		int contM7=0;
+		int contD150=0;
+		
+		for (int i = 1; i <= n; i++) {
+			
+			System.out.println("ingrese un numero entero positivo");
+			num = Integer.parseInt(sc.nextLine());
+			
+			if (7 % num == 0) {
+				contM7++;
+			}
+			
+			if (150 % num == 0) {
+				contD150++;
+			}
+			
+		}
+		
+		System.out.println("cant m 7: " + contM7 + " cantD150: " + contD150);
+		
+		sc.close();
+
+	}
+
+}

@@ -1,0 +1,23 @@
+package com.dam.ejcondicionales;
+
+import java.util.Scanner;
+
+public class ejercicio9 {
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Ingrese la cantidad de alumnos");
+		int a = Integer.parseInt(sc.nextLine());
+		
+		if (a >= 100) {
+			int pgo = a * 65;
+			System.out.println();
+		}
+		
+		sc.close();
+
+	}
+
+}

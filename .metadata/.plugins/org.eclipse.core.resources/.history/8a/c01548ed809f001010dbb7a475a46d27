@@ -1,0 +1,36 @@
+package com.dam.ejif;
+
+import java.util.Scanner;
+
+public class Ejercicio_3 {
+	
+	static final int PH= 16;
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Introduce el número de horas completas trabajadas: ");
+		int h = Integer.parseInt(sc.next());
+		int sn = h*PH; //Salario normal
+		
+		if (h <= 20) {
+			
+			System.out.println("Tu salario es: " + sn);
+			
+		} else {
+			
+			
+			
+		}
+		
+		
+		
+		
+		
+		
+		sc.close();
+
+	}
+
+}

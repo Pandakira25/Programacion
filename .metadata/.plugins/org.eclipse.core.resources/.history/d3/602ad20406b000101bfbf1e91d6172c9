@@ -1,0 +1,25 @@
+package com.dam.ejercicio1b;
+
+public class Ejercicio1b {
+	
+	static final int INICIO = 94;
+	static final int CANT_TERMS = 18;
+	static final int SALTO = 6;
+
+	public static void main(String[] args) {
+		
+		int n = INICIO;
+		
+		for (int i = 1; i < CANT_TERMS; i ++) {
+			
+			System.out.print(n);
+			if(i!=(CANT_TERMS-1)){
+				System.out.print(" _ ");
+				//System.out.print("("+i+")");
+			}
+			n -=  SALTO;
+		}
+
+	}
+
+}

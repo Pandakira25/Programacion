@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Move element &apos;EjecucionCoche.java&apos; to &apos;PruebasUF3_3/src/com.dam.main&apos;&#x0D;&#x0A;- Original project: &apos;PruebasUF3_3&apos;&#x0D;&#x0A;- Destination element: &apos;PruebasUF3_3/src/com.dam.main&apos;&#x0D;&#x0A;- Original element: &apos;com.dam.pojos.EjecucionCoche.java&apos;&#x0D;&#x0A;- Update references to refactored element" description="Move compilation unit" destination="/src&lt;com.dam.main" element1="/src&lt;com.dam.pojos{EjecucionCoche.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.move" patterns="*" policy="org.eclipse.jdt.ui.moveResources" qualified="false" references="true" stamp="1760434447153" units="1" version="1.0"/>
+</session>

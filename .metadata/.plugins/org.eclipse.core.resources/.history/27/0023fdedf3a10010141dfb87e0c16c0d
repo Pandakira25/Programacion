@@ -1,0 +1,18 @@
+package com.dam.ejcondicionales;
+
+import java.util.Scanner;
+
+public class ejercicio10 {
+
+	public static void main(String[] args) {
+		
+Scanner sc = new Scanner (System.in);
+		
+		System.out.println("Ingrese el resultado del dado");
+		
+		
+		sc.close();
+
+	}
+
+}

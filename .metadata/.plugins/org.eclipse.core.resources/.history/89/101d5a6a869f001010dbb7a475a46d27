@@ -1,0 +1,35 @@
+package com.dam.ejif;
+
+import java.util.Scanner;
+
+public class Ejercicio_3 {
+	
+	static final int PH = 16;//Precio horas normales
+	static final int PHE = 20; //Precio horas extra
+	static final int MAXH = 40; //Maximo de horas normales
+
+	public static void main(String[] args) {
+		
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Introduce el número de horas completas trabajadas: ");
+		double h = Double.parseDouble(sc.next());
+		sc.close();
+		
+		double ss;
+		
+		if (h <= MAXH) {
+			
+			//ss = h * PH;//Salario Semanal puedo no crear una variable en este caso
+			System.out.println("Tu salario es: " + (h * PH) );
+			
+		} else {
+			
+			//ss =  (MAXH * PH) + (h - MAXH) * PHE;// Horas extra
+			System.out.println("El sueldo con horas extra es: " + ((MAXH * PH) + (h - MAXH) * PHE) );
+		
+		}
+		
+	}
+
+}
