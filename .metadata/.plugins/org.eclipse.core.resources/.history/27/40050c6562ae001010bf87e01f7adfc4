@@ -1,8 +1,0 @@
-package com.dam.ejercicio3.pojo;
-
-public class EquipoFutbol {
-	
-	private String nombre;
-	private String 
-
-}
