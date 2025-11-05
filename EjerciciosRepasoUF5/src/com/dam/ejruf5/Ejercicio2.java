@@ -38,6 +38,8 @@ public class Ejercicio2 {
 			c--;
 		}
 		
+		sc.close();
+		
 		System.out.println("cant neg: " + cNeg + " cant pos: " + cPos + " cant multiplos de 15: " + cM15 + " valor acumulado de los numeros ingresados pares: " + sumP);
 
 	}
