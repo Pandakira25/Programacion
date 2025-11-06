@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename type &apos;com.dam.ejrepeticion.EjercicioDoWhileComoFor&apos; to &apos;EjercicioDoWhile2ComoFor&apos;&#x0D;&#x0A;- Original project: &apos;ActividadesUF4_1&apos;&#x0D;&#x0A;- Original element: &apos;com.dam.ejrepeticion.EjercicioDoWhileComoFor&apos;&#x0D;&#x0A;- Renamed element: &apos;com.dam.ejrepeticion.EjercicioDoWhile2ComoFor&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;EjercicioDoWhileComoFor&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;com.dam.ejrepeticion{EjercicioDoWhileComoFor.java[EjercicioDoWhileComoFor" matchStrategy="1" name="EjercicioDoWhile2ComoFor" qualified="false" references="true" similarDeclarations="false" stamp="1760002512126" textual="false" version="1.0"/>
-</session>
