@@ -15,7 +15,20 @@ public class Ejercicio5 {
 		
 		//la cantidad de espacio entre el numero central y los extremos es de n-1 
 		
-		for (int c = n; c >0; c--) { //OK
+		for (int i = 0; i <= n; i++) { //OK
+			
+			for (int j = i; j < n; j++) {
+				System.out.print(" ");
+			}
+			
+			for (int j = 1; j <= i; j++) {//desde el uno hasta la fila en la que me encuentre
+				System.out.print(j);
+			}
+			
+			for(int j = i-1;j > 0;j--) {//
+				System.out.print(j);
+			}
+			System.out.println();
 			
 		}
 
