@@ -35,13 +35,13 @@ public class Ejercicio18 {
 				cPT = 0;
 				tPeso = 0;
 			}else {
-				System.out.println("Debe subir otra persona");
+				if(i == P_T) {
+					System.out.println("El telesilla no puede salir");
+				}else {
+					System.out.println("Debe subir otra persona");
+				}
 			}
 			
-		}
-		
-		if(cPT>0 && (cPT < P_S && tPeso < KG_M_S)) {
-			System.out.println("El telesilla no puede salir");
 		}
 		
 		sc.close();
