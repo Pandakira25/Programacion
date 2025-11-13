@@ -13,6 +13,8 @@ public class Ejercicio3 {
 		
 		Scanner sc = new Scanner(System.in);
 		
+		//Mejor usar StringBuilder
+		
 		System.out.println("Ingrese una palabra toda en minúsculas y sin espacios: ");
 		StringBuffer palabra = new StringBuffer(sc.nextLine());
 		
