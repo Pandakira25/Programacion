@@ -9,9 +9,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Ejercicio7 {
-	
-	static Scanner sc = new Scanner(System.in);
-	static Random rd = new Random();
 
 	public static void main(String[] args) {
 		
@@ -35,6 +32,8 @@ public class Ejercicio7 {
 	}
 	
 	private static int[] PedirDatos() {
+		Scanner sc = new Scanner(System.in);
+		
 		System.out.print("Ingrese el tamaño del array: ");
 		int lenght = Integer.parseInt(sc.nextLine());
 		System.out.println("Ingrese el mínimo y el máximo del rango de números random: ");
@@ -48,6 +47,8 @@ public class Ejercicio7 {
 			minRd = maxRd;
 			maxRd = c;
 		}
+		
+		sc.close();
 		
 		return new int[] {lenght, minRd, maxRd}; //me gusta esta idea pero me jode que no le pueda poner un nombre al array o al menos no se como ponérselo
 	}
@@ -69,6 +70,8 @@ public class Ejercicio7 {
 	}
 	
 	private static void RellenarArray(int n[], int minRd, int maxRd) {
+		Random rd = new Random();
+		
 		int nRd = 0;
 		
 		for(int i = 0; i < n.length; i++) {
@@ -98,8 +101,3 @@ public class Ejercicio7 {
 	}
 
 }
-
-
-
-//Como accedo a variables de otro metodo dentro de un metodo: declarar las variables como globales o ingresarlas como parámetros desde el main
-//como accedo a un método desde otro método

@@ -60,7 +60,7 @@ public class Ejercicio5 {
 		return media;
 	}
 	
-	private static String mediaMasMenos(double aPersonas[]){
+	private static String mediaMasMenos(double aPersonas[]){ //Pasarle la media como parámetro
 		int cMay = 0;//Contador mayores
 		int cMen = 0;//Contador menores
 		

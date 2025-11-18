@@ -22,59 +22,111 @@ public class mainEj9 {
 	
 	static final int CANT_P = 10;
 	static Random rd = new Random();
+	
+	static Persona p[];
 
 	public static void main(String[] args) {
 		
-		 Persona p [] = new Persona[CANT_P];
-		 
-		 //Rellenar los array de manera aleatiria 
-		 fillArrays(p);
-		 
-		 
-		 //Mostrar los porcentajes y promedios
-		 
+		//Crear array y rellenar con las personas
+		crearArrayPersonas();
+		
+		//mostrar array
+		mostrarP();
+		
+		//Realizar el análisis y cálculos
+		realizarCalculos();
+		
 
 	}
 	
-	//Método para rellenar cada array persona
-	private static void fillArrays(Persona p []) {
-		int sexo = 0;
-		int laburo = 0;
-		int sueldo = 0;
+	private static void realizarCalculos() {
+		int contH = 0;
+		int contM = 0;
+		int contHT = 0;
+		int contMT = 0;
+		double sumaSHT = 0;//Sumar salarios de los hombres que trabajan
+		double sumaSMT = 0;
 		
 		for(int i = 0; i < p.length; i++) {
-			sexo = rd.nextInt(1,3);
-			laburo = rd.nextInt(1,3);
 			
-			if(laburo != 0) {
-				sueldo = rd.nextInt(600,2001);
+			if(p[i].getSexo() ==  Persona.SEXO[0]) {
+				contH++;
+				
+				if(p[i].getTrabaja() == Persona.TRABAJA[0]) {
+					contHT++;
+					
+					sumaSHT += p[i].getSueldo();
+				}
+				
 			}else {
-				sueldo = 0;
-			}
-			p[i] = new Persona(sexo,laburo,sueldo);//meter datos de un objeto desde un array
-			//System.out.println(p[i].getSexo());
+				contM++;
+				
+				if(p[i].getTrabaja() == Persona.TRABAJA[0]) {
+					contMT++;
+					
+					sumaSMT += p[i].getSueldo();
+				}
+			}	
+		}
+		
+		//porcentaje de Hombres
+		double porcH = (double) contH * 100 / p.length;
+		
+		//Porcentaje de mujeres
+		double porcM = (double) contM * 100 / p.length;
+		
+		//Porcentaje de hombres que trabajan 
+		double porcHT = 0;
+		if(contH != 0) {
+			porcHT = (double)contHT * 100 / contH;
+		}
+		
+		double porcMT = 0;
+		if(contM != 0) {
+			porcMT = (double)contMT * 100 / contM;
+		}
+		
+		//Media de salario de hombres que trabajan
+		double mediaSHT = 0;
+		
+		if(contHT != 0) {
+			mediaSHT = sumaSHT / contHT;
+		}
+		
+		double mediaSMT = 0;
+		
+		if(contMT != 0) {
+			mediaSMT = sumaSMT / contMT;
+		}
+		
+		System.out.println("##Resultados de los cálculos realizados: ");
+		System.out.println("Porcentaje de hombres: " + porcH + "\nPorcentaje de mujeres: " + porcM);
+		System.out.println("Porcentaje de hombres que trabajan: " + porcHT + "\nPorcentaje de mujeres que trabajan: " + porcMT);
+		System.out.println("Media de salario de hombres que trabajan: " + mediaSHT + "\nMedia de salario de mujeres que trabajan: " + mediaSMT);
+		
+	}
+	
+	
+	//No se pide pero lo hacemos para comprobaciones
+	private static void mostrarP() {
+		System.out.println("##Datos de encuestas realizadas##\n");
+		for(int i = 0; i < p.length; i++) {
+			System.out.println(p[i] + "\n");
 		}
 		
 	}
 	
 	
-	//Método porcentaje hombres 
-	private static void porHombres(int p[]) {
-			
+	private static void crearArrayPersonas() {
+		p = new Persona[CANT_P];
+		
+		//Rellenar array generando personas aleatorias
+		for(int i = 0; i < p.length; i++) {
+			p[i] = new Persona();
+		}
+		
 	}
-		
-	//Método pocentaje mujeres
-	private void porMujeres(int p[]) {
-			
-	}
-		
-	//Método porcentaje hombres que trabajan
-		
-	//Método porcentaje mujeres que trabajan
-		
-	//Método sueldo promedio hombres que trabajan
-		
-	//Método sueldo promedio muejres que trabajan
-		
+	
+	
 
 }

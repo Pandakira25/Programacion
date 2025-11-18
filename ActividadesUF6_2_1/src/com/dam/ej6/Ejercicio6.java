@@ -50,7 +50,7 @@ public class Ejercicio6 {
 	
 	private static void rellenarArray(int numeros[], int limInf, int limSup) {
 		for(int i = 0; i < numeros.length; i++) {
-			int nAl = rd.nextInt(MIN_AL,MAX_AL);
+			int nAl = rd.nextInt(MIN_AL,MAX_AL + 1);
 			numeros[i] = nAl; 
 		}
 		
