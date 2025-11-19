@@ -1,6 +1,6 @@
-package com.dam.a.ej2.pojo;
+package com.dam.a.ej2B;
 
-public class Encuesta {
+public class EncuestaB {
 	
 	//Constantes
 	static final String POSIBLES_SINTOMAS[] = {"Síntomas respiratorios", "Diarrea","Cansancio o Malestar","Perdida del olfato","Perdida del gusto", "Fiebre","Sin síntomas"};
@@ -17,7 +17,7 @@ public class Encuesta {
 	private int nivelGravedad;
 	
 	
-	public Encuesta(int edad, String haPasadoCovid, String sintomas, int nivelGravedad) {
+	public EncuestaB(int edad, String haPasadoCovid, String sintomas, int nivelGravedad) {
 		super();
 		this.edad = edad;
 		this.haPasadoCovid = haPasadoCovid;
@@ -26,7 +26,7 @@ public class Encuesta {
 	}
 
 
-	@Override
+	//ToString
 	public String toString() {
 		return "Edad: " + edad + " años\n  ¿Ha pasado usted el covid-19? " + haPasadoCovid + "\n¿Qué síntomas padeció? " + sintomas
 				+ "\nNivel de gravedad: " + traducirNivelGravedad();
@@ -65,10 +65,15 @@ public class Encuesta {
 	}
 	 */
 	
-	public int calcularNumSintomas() {
-		String arraySintomas[] = sintomas.split(",");//Dividide una cadena de caracteres dependiendo del caracter que le indiques
+	public boolean padecioSintomaYN(String sintoma) {
+		String arraySintomas [] = sintomas.split(",");
 		
-		return arraySintomas.length;
+		for(int i) {
+			if(sintoma.equals(sintoma)) {
+				
+			}
+		}
+	
 	}
 	
 	

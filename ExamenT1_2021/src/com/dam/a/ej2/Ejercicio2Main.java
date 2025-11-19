@@ -26,35 +26,39 @@ public class Ejercicio2Main {
 		
 		sc.close();
 		
-		System.out.println(resultadosEncuesta(encuestas));
+		//System.out.println(encuestas[0].getNivelGravedad());
+		
+		System.out.println("\n"+resultadosEncuesta(encuestas) + "\n");
 		
 		eMayMenGravedad(encuestas);
 
 	}
 
 	private static void eMayMenGravedad(Encuesta[] encuestas) {
-		//voy recorriendo el array de encuestas y si la edad es mayor que la anterior y la gravedad menor que el siguiente asigno esa posicion como la mayor
-		Encuesta valida = null;
-		Encuesta actual;
-		
-		boolean eMayor;
-		boolean rMenor;
+		//creo dos encuesta para almacenar las que me sirvan y las inicializo en null, en el recorrido del array si las variables son null les asigno el valor del array actual, si no compruebo que el array que guardaron
+		//cumpla con la condicion que quiero
+		Encuesta mayEdad = null;
+		Encuesta menGravedad = null;
 		
 		for(int i = 0; i <encuestas.length; i++) {
-			actual = encuestas[i];
 			if(encuestas[i].getHaPasadoCovid().equals(Encuesta.getHaPasadoCovidResp()[0])) {
-				if(valida == null) {
-					valida = actual;
+				if((mayEdad == null) && (menGravedad == null)) {
+					mayEdad = encuestas[i];
+					menGravedad = encuestas[i];
 				}else {
-					eMayor = actual.getEdad() > valida.getEdad(); 
-					rMenor = actual.getNivelGravedad() < valida.getNivelGravedad(); 
-					if(eMayor && rMenor) { 
-						valida = actual; 
+					
+					if(mayEdad.getEdad() < encuestas[i].getEdad()) {
+						mayEdad = encuestas[i];
+					}
+					
+					if(menGravedad.getNivelGravedad() > encuestas[i].getNivelGravedad()) {
+						menGravedad = encuestas[i];
 					}
 				}
 			}
 		}
-		System.out.println("La encuesta del encuestado mas grande con menor riesgo es: \n" + valida.toString());
+		System.out.println("La la encuesta de la mayor persona en pasar el covid es: \n" + mayEdad.toString());
+		System.out.println("\nLa encuesta de la persona con menor gravedad pasada es: \n" + menGravedad.toString());
 	}
 
 	private static String resultadosEncuesta(Encuesta encuestas []) {
