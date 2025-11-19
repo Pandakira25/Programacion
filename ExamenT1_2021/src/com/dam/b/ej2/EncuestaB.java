@@ -1,4 +1,4 @@
-package com.dam.a.ej2B;
+package com.dam.b.ej2;
 
 public class EncuestaB {
 	
@@ -32,50 +32,24 @@ public class EncuestaB {
 				+ "\nNivel de gravedad: " + traducirNivelGravedad();
 	}
 
-
+	//Métodos
 	private String traducirNivelGravedad() {
 		String palabraNG = null;
-		
-		//for (int i = 0; i < NIVELES_DE_GRAVEDAD.length; i++) {
-		//	if(nivelGravedad == NIVELES_DE_GRAVEDAD[i]) {
-		//		palabraNG = NIVELES_DE_GRAVEDAD_S[i];
-		//	}
-		//}
 		
 		palabraNG = NIVELES_DE_GRAVEDAD_S[nivelGravedad-1];
 		
 		return palabraNG;
 	}
 	
-	/*
-	 * public int calcularNumSintomas() {
-		int contSint = 0;
-		
-		if(sintomas.length() > 0) {
-			contSint++;
-			//Buscar comas
-			int indiceComa = sintomas.indexOf(",");
-			
-			while(indiceComa > 0) {
-				contSint++;
-				indiceComa = sintomas.indexOf(",",indiceComa);
-			}
-		}
-		return contSint;
-	}
-	 */
-	
 	public boolean padecioSintomaYN(String sintoma) {
 		String arraySintomas [] = sintomas.split(",");
+		boolean tieneSintoma = false;
 		
-		for(int i) {
-			if(sintoma.equals(sintoma)) {
-				
+		for(int i = 0; i < arraySintomas.length; i++) {
+			if(sintoma.equalsIgnoreCase(arraySintomas[i].trim())) {
+				tieneSintoma = true;
 			}
 		}
-	
+		return tieneSintoma;
 	}
-	
-	
-
 }
