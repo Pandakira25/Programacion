@@ -37,28 +37,20 @@ public class Ejercicio2Main {
 	private static void eMayMenGravedad(Encuesta[] encuestas) {
 		//creo dos encuesta para almacenar las que me sirvan y las inicializo en null, en el recorrido del array si las variables son null les asigno el valor del array actual, si no compruebo que el array que guardaron
 		//cumpla con la condicion que quiero
-		Encuesta mayEdad = null;
-		Encuesta menGravedad = null;
+		Encuesta mayEdadMenGra = null;
 		
 		for(int i = 0; i <encuestas.length; i++) {
-			if(encuestas[i].getHaPasadoCovid().equals(Encuesta.getHaPasadoCovidResp()[0])) {
-				if((mayEdad == null) && (menGravedad == null)) {
-					mayEdad = encuestas[i];
-					menGravedad = encuestas[i];
-				}else {
-					
-					if(mayEdad.getEdad() < encuestas[i].getEdad()) {
-						mayEdad = encuestas[i];
-					}
-					
-					if(menGravedad.getNivelGravedad() > encuestas[i].getNivelGravedad()) {
-						menGravedad = encuestas[i];
-					}
-				}
+			if((encuestas[i].getHaPasadoCovid().equals(Encuesta.HA_PASADO_COVID_RESP[0]) &&
+					(mayEdadMenGra == null ||
+					(encuestas[i].getEdad() > mayEdadMenGra.getEdad() ||
+							(encuestas[i].getEdad() == mayEdadMenGra.getEdad() && encuestas[i].getNivelGravedad() < mayEdadMenGra.getNivelGravedad()))))) 
+			{ //tomo en cuenta ambas variables al mismo tiempo
+				
+				mayEdadMenGra = encuestas[i];
+				
 			}
 		}
-		System.out.println("La la encuesta de la mayor persona en pasar el covid es: \n" + mayEdad.toString());
-		System.out.println("\nLa encuesta de la persona con menor gravedad pasada es: \n" + menGravedad.toString());
+		System.out.println("La la encuesta de la persona mas mayor en pasar el covid con el menor nivel de gravedad es: \n" + mayEdadMenGra.toString());
 	}
 
 	private static String resultadosEncuesta(Encuesta encuestas []) {

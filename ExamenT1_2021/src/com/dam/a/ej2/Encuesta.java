@@ -54,7 +54,7 @@ public class Encuesta {
 	//ToString
 	public String toString() {
 		return "Edad: " + edad + " años\n  ¿Ha pasado usted el covid-19? " + haPasadoCovid + "\n¿Qué síntomas padeció? " + sintomas
-				+ "\nNivel de gravedad: " + traducirNivelGravedad();
+				+ "\nNivel de gravedad: " + traducirNivelGravedad() +"\n";
 	}
 	
 	//Métodos
