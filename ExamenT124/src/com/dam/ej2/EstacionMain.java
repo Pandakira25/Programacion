@@ -2,35 +2,28 @@ package com.dam.ej2;
 
 import java.util.Scanner;
 
-import com.dam.a.ej2.Encuesta;
-
 public class EstacionMain {
 
 	public static void main(String[] args) {
 
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.print("Ingrese la cantidad de estaciones a introducir: ");
+		System.out.print("Indica la cantidad de estaciones que se van a introducir: ");
 		int nE = Integer.parseInt(sc.nextLine());
 		
 		Estacion estaciones[] = new Estacion[nE];
 		
 		pedirDaE(sc,estaciones);
 		
-		shwDaEsA(estaciones);
+		System.out.println("*** PISTAS INTRODUCIDAS ***");
 		
-		estMenKmEq(estaciones);
-		
-		
+		shwDaEsAYKmE(estaciones);
 	}
 
-	private static void estMenKmEq(Estacion[] estaciones) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private static void shwDaEsA(Estacion[] estaciones) {
-		// TODO Auto-generated method stub
+	private static void shwDaEsAYKmE(Estacion[] estaciones) {
+		for(int i = 0; i<estaciones.length;i++) {
+			System.out.println(estaciones[i].toString() + "\nPorcentaje de Km esquiables: " + estaciones[i].pEsq()+"%");
+		}
 		
 	}
 
@@ -38,27 +31,33 @@ public class EstacionMain {
 		String nombre = "";
 		String provincia = "";
 		String estado = "";
-		String Remontes = "";
-		String Pistas = "";
-		String KmEsquiables = "";
+		String remontes = "";
+		String pistas = "";
+		String kmEsquiables = "";
 		
 		for(int i = 0; i < estaciones.length; i++) {
 			
-			System.out.print("Ingrese la edad del encuestado " + (i+1) +": ");
-			edad = Integer.parseInt(sc.nextLine());
+			System.out.print("Introduce el nombre de la estación " + (i+1) +": ");
+			nombre = sc.nextLine();
 			
-			System.out.print("Ingrese \"Si\" si tuvo covid, ingrese \"No\" si no tuvo: ");
-			covid = sc.nextLine(); 
+			System.out.print("Introduce la provincia en la que se encuentra: ");
+			provincia = sc.nextLine(); 
 			
-			if(covid.equals(Encuesta.getHaPasadoCovidResp()[0])) {//igualo el string ingresado a la constante en el pojo encuesta
-				System.out.print("Ingrese los sintomas separados por comas: ");
-				sintomas = sc.nextLine();
+			System.out.print("Estado(ABIERTA/CERRADA): ");
+			estado = sc.nextLine();
+			
+			if(estado.equalsIgnoreCase(Estacion.ESTADO_S[0])) {
+				System.out.print("Remontes: ");
+				remontes = sc.nextLine();
 				
-				System.out.print("Ingrese el nivel de gravedad del 1 al 5, siendo 5 la mayor: ");
-				gravedad = Integer.parseInt(sc.nextLine());
+				System.out.print("Pistas: ");
+				pistas = sc.nextLine();
+				
+				System.out.print("Kilómetros esquiables:");
+				kmEsquiables = sc.nextLine();
 			}
 			
-			encuestas[i] = new Encuesta(edad, covid, sintomas, gravedad);
+			estaciones[i] = new Estacion(nombre,provincia,estado,remontes,pistas,kmEsquiables);
 		}
 		
 	}
