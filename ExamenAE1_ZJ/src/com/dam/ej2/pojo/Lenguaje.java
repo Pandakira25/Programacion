@@ -9,14 +9,14 @@ public class Lenguaje {
 	private double porUso;
 	private double difPorUsoAA;
 	
-	//Constructores
+	//Builders
 	public Lenguaje() {}
 	
-	public Lenguaje(String nombre, String nomCreador, int añoPublicacion, int posicionRank, double porUso, double porUsoAA) {
+	public Lenguaje(String nombre, String nomCreador, int anioPublicacion, int posicionRank, double porUso, double porUsoAA) {
 
 		this.nombre = nombre;
 		this.nomCreador = nomCreador;
-		this.anioPublicacion = añoPublicacion;
+		this.anioPublicacion = anioPublicacion;
 		this.posicionRank = posicionRank;
 		this.porUso = porUso;
 		this.difPorUsoAA = porUsoAA;
@@ -36,7 +36,7 @@ public class Lenguaje {
 	}
 	
 	
-	//Métodos
+	//Methods
 	public String apellido() {
 		String nombreApellido[] = nomCreador.split(" ");
 		
@@ -52,14 +52,6 @@ public class Lenguaje {
 		}
 		
 		return apellidoC.toString();
-	}
-
-	public String nombre() {
-		String nombreApellido[] = nomCreador.split(" ");
-		
-		String nombre = nombreApellido[0];
-		
-		return nombre;
 	}
 	
 	public double porAnioAnterior() {

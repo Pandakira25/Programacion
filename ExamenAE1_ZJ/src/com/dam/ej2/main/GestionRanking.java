@@ -6,15 +6,15 @@ import com.dam.ej2.pojo.Lenguaje;
 
 public class GestionRanking {
 	
-	static final int anioActual = 2025;
-	static final int tamArray = 5;
+	static final int ANIO_ACTUAL = 2025; //don´t forget to name the constants in capital letters
+	static final int TAM_ARRAY = 5;
 
 
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
 		
-		Lenguaje lenguajes[] = new Lenguaje[tamArray];
+		Lenguaje lenguajes[] = new Lenguaje[TAM_ARRAY];
 		
 		rellLeng(sc,lenguajes);
 		
@@ -25,10 +25,6 @@ public class GestionRanking {
 		lM30PMasMen(lenguajes);
 		
 		TresMasUsoPT(lenguajes);
-		
-		
-		
-
 	}
 
 	/*
@@ -50,9 +46,9 @@ public class GestionRanking {
 			}
 		}
 		
-		if(p1.aniosEnUso(anioActual) > p2.aniosEnUso(anioActual) && p1.aniosEnUso(anioActual) > p3.aniosEnUso(anioActual) ) {
+		if(p1.aniosEnUso(ANIO_ACTUAL) > p2.aniosEnUso(ANIO_ACTUAL) && p1.aniosEnUso(ANIO_ACTUAL) > p3.aniosEnUso(ANIO_ACTUAL) ) {
 			lMasA = p1;
-		}else if(p2.aniosEnUso(anioActual) > p3.aniosEnUso(anioActual)) {
+		}else if(p2.aniosEnUso(ANIO_ACTUAL) > p3.aniosEnUso(ANIO_ACTUAL)) {
 			lMasA = p2;
 		}else {
 			lMasA = p3;
@@ -70,7 +66,7 @@ public class GestionRanking {
 		int cMenPor = 0;
 		
 		for(int i = 0; i < lenguajes.length; i++) {
-			if(lenguajes[i].aniosEnUso(anioActual) > 30) {
+			if(lenguajes[i].aniosEnUso(ANIO_ACTUAL) > 30) {
 				cMas30++;
 			}
 			
@@ -89,7 +85,7 @@ public class GestionRanking {
 	private static void mostrarD(Lenguaje[] lenguajes) {
 		
 		for(int i = 0; i < lenguajes.length; i++) {
-			System.out.println(lenguajes[i].toString() + "\n\nPorcentaje de uso hace un año: " + lenguajes[i].porAnioAnterior() + "\nAños que lleva en uso: " + lenguajes[i].aniosEnUso(anioActual));
+			System.out.println(lenguajes[i].toString() + "\n\nPorcentaje de uso hace un año: " + lenguajes[i].porAnioAnterior() + "\nAños que lleva en uso: " + lenguajes[i].aniosEnUso(ANIO_ACTUAL));
 		}
 		
 	}
