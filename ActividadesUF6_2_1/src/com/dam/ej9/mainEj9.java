@@ -124,9 +124,5 @@ public class mainEj9 {
 		for(int i = 0; i < p.length; i++) {
 			p[i] = new Persona();
 		}
-		
 	}
-	
-	
-
 }

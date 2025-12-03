@@ -23,11 +23,31 @@ public class Ejercicio7 {
 		int matriz [][] = new int [n][n];
 		
 		fillM(matriz,rd);
+		mostrarMatriz(matriz);
+		sumDI(matriz, n);
+		
 
 	}
 	
-	private static void sumaDI(int matriz [][]) {
+	private static void mostrarMatriz(int matriz [][]) {
+		for(int i = 0; i < matriz.length; i++) {
+			for(int j = 0; j < matriz[i].length; j++) {
+				System.out.print(matriz[i][j] + "  ");
+			}
+			System.out.println();
+		}
 		
+	}
+	
+	private static void sumDI(int matriz [][], int n) {
+		int sumDI = 0;
+		int j = n-1;
+		
+		for(int i = 0; i < n; i++) {
+			sumDI += matriz[i][j];
+			j--;
+		}
+		System.out.println("La suma de diagonal inversa de la matriz es: " + sumDI);
 	}
 	
 	private static void fillM(int[][] matriz, Random rd) {
