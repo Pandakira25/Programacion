@@ -21,6 +21,19 @@ public class Ejercicio6 {
 
 	}
 	
+	//teacher´s method who is better then my shit
+	private static void sumaFC(int matriz[][]) {
+		int sumaF [] = new int [matriz.length];
+		int sumaC [] = new int [matriz[0].length];
+		
+		for(int i = 0; i < matriz.length; i++) {
+			for(int j = 0; j < matriz[i].length; j++) {
+				sumaF[i] += matriz[i][j];
+				sumaC[j] += matriz[i][j];
+			}
+		}
+	}
+	
 	private static void sumaF(int matriz [][]) {
 		int sumaF = 0;
 		
