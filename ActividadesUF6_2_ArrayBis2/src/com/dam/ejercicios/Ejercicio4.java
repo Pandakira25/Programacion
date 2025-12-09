@@ -25,7 +25,7 @@ public class Ejercicio4 {
 		
 		sc.close();
 		
-		int matriz [][] = new int [c][f];
+		int matriz [][] = new int [c][f]; 
 		
 		fillM(matriz, rd);
 		
