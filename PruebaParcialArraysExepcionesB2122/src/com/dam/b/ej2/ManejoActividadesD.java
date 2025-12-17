@@ -60,6 +60,8 @@ public class ManejoActividadesD {
 	private static String solicitarDisciplina(Scanner sc) {
 		String d = "";
 		boolean valid = false;
+		
+		//me podía ahorrar el booleano usando la misma condicion en el while que la del if
 		do {
 			try{
 				System.out.println("Ingrese la disciplina:");
