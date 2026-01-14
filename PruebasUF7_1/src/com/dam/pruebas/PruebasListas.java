@@ -1,7 +1,7 @@
 package com.dam.pruebas;
 
 import java.util.ArrayList;
-import java.util.Iterator;
+//import java.util.Iterator;
 import java.util.Scanner;
 
 public class PruebasListas {
@@ -35,6 +35,7 @@ public class PruebasListas {
 		listaCadenas.add("rojo");
 		listaCadenas.add("azul");
 		listaCadenas.add("amarillo");
+		listaCadenas.add("rojo");
 		
 		//Solicitar 3 colores más al usuario
 		String color;
@@ -51,7 +52,7 @@ public class PruebasListas {
 		}
 		
 		listaCadenas.add(0,"blanco");
-		
+		sc.close();
 	}
 
 	private static void gestionListaEnteros() {

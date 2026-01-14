@@ -23,6 +23,7 @@ public class HacerListaCompra {
 				break;
 			case 2 : 
 				//eliminar producto de la lista
+				eliminarProd(listaCompra, sc);
 				break;
 			case 3 :
 				//mostrar los productos de la lista
@@ -35,11 +36,49 @@ public class HacerListaCompra {
 			}
 		}while(opcion != 4);
 	}
+	
+	//Agregar 5 para terminar 4 mostrar la lista y 3 eliminar producto por nombre y en el dos especificar que es por posicion
+
+	private static void eliminarProd(ArrayList<Producto> listaCompra, Scanner sc) {
+
+		//vamos a borrar segun la posicion que ocupe el producto
+		
+		try {
+			int pos;
+			
+			System.out.println("Ingrese la posicion del producto que desea eliminar: ");
+			pos = Integer.parseInt(sc.nextLine());
+			
+			System.out.println(pos - 1);
+			
+			if((pos-1) < 0 || pos > listaCompra.size()) {
+				throw new Exception("El valor introducido debe ser mayor que cero y ser igual o menor que la cantidad de productos");
+			}
+			
+			System.out.println("Esta seguro de querer eliminar " + listaCompra.get(pos - 1) + "?  SI/NO");
+			String qst = sc.nextLine();
+			
+			if(qst.equalsIgnoreCase("SI")) {
+				listaCompra.remove(pos - 1);
+				System.out.println("Elemento eliminado");
+			}
+			
+		}catch(NumberFormatException e) {
+			System.out.println("El valor introducido no es entero");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
+	}
 
 	private static void mostrarListaCompra(ArrayList<Producto> listaCompra) {
 		System.out.println("\nLista de la compra");
-		for (Producto producto : listaCompra) {
+		/*for (Producto producto : listaCompra) {
 			System.out.println(producto);
+		}*/
+		
+		for(int i = 0; i < listaCompra.size(); i++) {
+			System.out.println((i + 1) + " - " + listaCompra.get(i));
 		}
 	}
 
@@ -54,7 +93,7 @@ public class HacerListaCompra {
 				throw new Exception("El nombre está vacío, ingrese uno");
 			}
 			System.out.println("Ingrese la cantidad");
-			float cP = Integer.parseInt(sc.nextLine());
+			float cP = Float.parseFloat(sc.nextLine());
 			
 			if(cP <= 0) {
 				throw new Exception("El valor debe ser mayor que cero");
