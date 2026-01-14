@@ -45,4 +45,48 @@ public class hacerConjuntoCompra {
 		
 	}
 
+	private static void mostrarListaCompra(ArrayList<Producto> listaCompra) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static void addProduct(ArrayList<Producto> listaCompra, Scanner sc2) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private static int solicitarOpcionMenu(Scanner sc2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	private static void eliminarProd(ArrayList<Producto> listaCompra, Scanner sc) {
+		try {
+			//Modificar esto pa que funcione con hashset
+			int pos;
+			
+			System.out.println("Ingrese la posicion del producto que desea eliminar: ");
+			pos = Integer.parseInt(sc.nextLine());
+			
+			System.out.println(pos - 1);
+			
+			if((pos-1) < 0 || pos > listaCompra.size()) {
+				throw new Exception("El valor introducido debe ser mayor que cero y ser igual o menor que la cantidad de productos");
+			}
+			
+			System.out.println("Esta seguro de querer eliminar " + listaCompra.get(pos - 1) + "?  SI/NO");
+			String qst = sc.nextLine();
+			
+			if(qst.equalsIgnoreCase("SI")) {
+				listaCompra.remove(pos - 1);
+				System.out.println("Elemento eliminado");
+			}
+			
+		}catch(NumberFormatException e) {
+			System.out.println("El valor introducido no es entero");
+		}catch(Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }
