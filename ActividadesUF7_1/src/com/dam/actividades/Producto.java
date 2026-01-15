@@ -15,10 +15,14 @@ public class Producto {
 	public String toString() {
 		return "Producto: " + nombre + ", cantidad: " + cantidad;
 	}
-
+	
+	public String getNombre() {
+		return nombre;
+	}
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(cantidad, nombre);
+		return Objects.hash(nombre);
 	}
 
 	@Override
@@ -30,8 +34,7 @@ public class Producto {
 		if (getClass() != obj.getClass())
 			return false;
 		Producto other = (Producto) obj;
-		return Float.floatToIntBits(cantidad) == Float.floatToIntBits(other.cantidad)
-				&& Objects.equals(nombre, other.nombre);
+		return Objects.equals(nombre, other.nombre);
 	}
 	
 	
