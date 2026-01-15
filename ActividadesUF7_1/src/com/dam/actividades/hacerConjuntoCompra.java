@@ -1,6 +1,6 @@
 package com.dam.actividades;
 
-import java.util.ArrayList;
+//import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 import java.util.Set;
@@ -133,6 +133,19 @@ public class hacerConjuntoCompra {
 			}else {
 				System.out.println("El producto " + delP.getNombre() + " no se encuentra en la lista");
 			}
+			
+			//Corrección
+			
+			/*
+			 * el hash code de solo nombre
+			 * 
+			 * pido el nombre
+			 * 
+			 * if(conjCompra.remove(new Producto (nombre,0))){
+			 * syso de se eliminó
+			 * else 
+			 * syso de no se encuentra en la lista
+			 */
 			
 		} catch (NumberFormatException e) {
 			System.out.println("El valor introducido no es entero");

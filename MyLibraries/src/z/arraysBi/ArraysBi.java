@@ -112,14 +112,14 @@ public class ArraysBi {
 	
 	//Iterate lower triangular reverse diagonal ArrayBi
 	public static void ItAbLTRD(Object [][] m) {
-		int c = m[0].length - 1;
-		for(int i = m.length - 1; i >= 0;i--) {
-			for(int j = 0; j > m[0].length; j--) {
+		int c = m.length;
+		for(int i = 0; i < c;i++) {
+			for(int j = 0; j < c; j++) {
 				//x-x-x
 				//x-x-12
 				//x-21-22
-				if(j <= (m.length - c)) {
-					//triangular reverse diagonal
+				if(i+j > c-1) {
+					System.out.println(m[i][j] + "trángulo inferior de la diagonal inversa");
 				}
 			}
 		}
