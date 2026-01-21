@@ -1,14 +1,14 @@
 package com.dam.pruebas;
 
-import java.util.HashMap;
 //poner atención en el import del entry --> es el de java.util.map
 import java.util.Map.Entry;
+import java.util.TreeMap;
 
 public class PruebasMapasTM {
 
 	public static void main(String[] args) {
 		//Declaracion de un map
-		HashMap<Integer,String> mapaColores = new HashMap<Integer,String>();
+		TreeMap<Integer,String> mapaColores = new TreeMap<Integer,String>();
 		
 		//Añadir elementos a un mapa
 		mapaColores.put(1, "Rojo");
