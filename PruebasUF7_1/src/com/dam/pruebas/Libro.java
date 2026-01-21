@@ -20,13 +20,13 @@ public class Libro {
 
 	@Override
 	public int hashCode() {
-		System.out.println("Se invoca al hashCode");
+		//System.out.println("Se invoca al hashCode");
 		return Objects.hash(autor, numPag, titulo);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		System.out.println("Se invoca el equals");
+		//System.out.println("Se invoca el equals");
 		if (this == obj)
 			return true;
 		if (obj == null)
