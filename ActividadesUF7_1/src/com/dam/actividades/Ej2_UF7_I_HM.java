@@ -1,14 +1,15 @@
 package com.dam.actividades;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map.Entry;
 import java.util.Scanner;
-import java.util.TreeMap;
 
-public class Ej2_UF7_I {
+public class Ej2_UF7_I_HM {
 
 	public static void main(String[] args) {
 		
-		TreeMap<Integer,String> titulares = new TreeMap<Integer,String>();
+		HashMap<Integer,String> titulares = new HashMap<Integer,String>();
 		
 		fillTM(titulares);
 		
@@ -34,14 +35,14 @@ public class Ej2_UF7_I {
 		}while(opt != 2);
 	}
 
-	private static void endP(TreeMap<Integer, String> titulares) {
+	private static void endP(HashMap<Integer, String> titulares) {
 		titulares.clear();
 		if(titulares.isEmpty()) {
 			System.out.println("Final del partido");
 		}
 	}
 
-	private static void faltaJ(TreeMap<Integer, String> titulares, Scanner sc) {
+	private static void faltaJ(HashMap<Integer, String> titulares, Scanner sc) {
 		boolean valid = true;
 		
 		do {
@@ -58,14 +59,17 @@ public class Ej2_UF7_I {
 			}
 		}while(!valid);
 	}
-
-	private static void salidaCampo(TreeMap<Integer, String> titulares) {
-		for(Entry<Integer,String> records : titulares.entrySet()) {
+	
+	//Recorrer un mapa ordenado en el for each sería, para Entry de los tipos int y string que los nombro dentro del for each records, del arryList ordenado que hice antes
+	private static void salidaCampo(HashMap<Integer, String> titulares) {
+		ArrayList<Entry<Integer,String>> list = new ArrayList<Entry<Integer,String>>(titulares.entrySet());
+		list.sort(Entry.comparingByKey());
+		for(Entry<Integer,String> records : list) {
 			System.out.println("Con el número " + records.getKey() + " ... " + records.getValue());
 		}
 	}
 
-	private static void fillTM(TreeMap<Integer, String> titulares) {
+	private static void fillTM(HashMap<Integer, String> titulares) {
 		titulares.put(1, "Casillas");
 		titulares.put(3,"Pique");
 		titulares.put(5, "Puyol");
