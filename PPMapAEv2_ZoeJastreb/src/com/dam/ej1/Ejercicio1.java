@@ -50,15 +50,22 @@ public class Ejercicio1 {
 			lB = Integer.parseInt(sc.nextLine());
 			
 			if(tablaFlota.containsKey(plate)) {
-				System.out.println("¡Este vehículo ya está registrado, se actualiza el porcentaje de batería!");
-				tablaFlota.put(plate, lB);
-			}else if(lB <= LOW_B) {
-				tablaFlota.put(plate, lB);
-				i++;
-				System.out.println("¡¡El vehículo con matrícula " + plate + " debe ser recargado!!");
+				if(lB <= LOW_B) {
+					tablaFlota.put(plate, lB);
+					System.out.println("¡Este vehículo ya está registrado, se actualiza el porcentaje de batería!");
+					System.out.println("¡¡El vehículo con matrícula " + plate + " debe ser recargado!!");
+				}else {
+					System.out.println("¡Este vehículo ya está registrado, se actualiza el porcentaje de batería!");
+					tablaFlota.put(plate, lB);
+				}
 			}else {
-				tablaFlota.put(plate, lB);
-				i++;
+				if(lB<=LOW_B) {
+					tablaFlota.put(plate, lB);
+					System.out.println("¡¡El vehículo con matrícula " + plate + " debe ser recargado!!");
+				}else {
+					tablaFlota.put(plate, lB);
+					i++;
+				}
 			}
 		}
 		
