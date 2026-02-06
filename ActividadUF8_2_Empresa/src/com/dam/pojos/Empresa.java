@@ -6,9 +6,9 @@ public class Empresa {
 	 private String nombre;
 	private ArrayList<Empleado> listaEmpleados;
 	 
-	public Empresa(String nombre, ArrayList<Empleado> listaEmpleados) {
+	public Empresa(String nombre) {
 			this.nombre = nombre;
-			this.listaEmpleados = listaEmpleados;
+			listaEmpleados = new ArrayList<Empleado>();
 	}
 	 
 	public ArrayList<Empleado> getListaEmpleados() {
@@ -19,11 +19,12 @@ public class Empresa {
 		listaEmpleados.add(empleado);
 	}
 	
-	public void calcularTotalSalarios() {
+	public double calcularTotalSalarios() {
 		double sum = 0;
 		for(Empleado empleado : listaEmpleados) {
 			sum+=empleado.getSalario();
 		}
+		return sum;
 	}
 	
 	public String toString() {
