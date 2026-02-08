@@ -15,7 +15,7 @@ public class EmpleadoProduccion extends Empleado {
 	}
 	
 	public String toString() {
-		return super.toString() + " " + turno + " " + plusNoct;
+		return super.toString() + ", Turno: " + turno + ((turno.equalsIgnoreCase("N"))? ", plusNoct: " + plusNoct : "") + "\n";
 	}
 	
 }

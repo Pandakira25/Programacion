@@ -10,14 +10,14 @@ public class B {
 	static final int AFO = 50;
 
 	public static void main(String[] args) {
-		HashMap<String,Integer> tablaReservas = new HashMap<String,Integer>();
+		HashMap<String,Integer> tablaReservas = new HashMap<String,Integer>(); //nobre=key, nComensale=valor
 		Scanner sc = new Scanner (System.in);
 		
-		int i = 0;
-		String no;
-		int com;
+		int i = 0;//contador
+		String no;//nombre
+		int com;//comensales
 		int temp;
-		int mesas = 0;
+		int mesasM2 = 0;//contador para saber cuantas mesas tienen mas de 2 comensales
 		while(i < AFO) {
 			System.out.println("Introduce tu nombre");
 			no = sc.nextLine();
@@ -37,7 +37,7 @@ public class B {
 					System.out.println("reserva realizada");
 					
 					if(com>2) {
-						mesas++;
+						mesasM2++;
 					}
 				}
 			}
@@ -46,12 +46,13 @@ public class B {
 		
 		System.out.println("\nAforo completado");
 		
+		
 		ArrayList<Entry<String,Integer>> tRS = new ArrayList<Entry<String,Integer>>(tablaReservas.entrySet());
 		tRS.sort(Entry.comparingByValue());
 		for(Entry<String,Integer> c : tRS ) {
 			System.out.println(c.getKey() + " - " + c.getValue() + " comensales");
 		}
-		System.out.println("\nHay " + mesas + " con mas de 2 comensales");
+		System.out.println("\nHay " + mesasM2 + " con mas de 2 comensales");
 		
 	}
 

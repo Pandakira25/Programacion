@@ -17,6 +17,6 @@ public class Empleado {
 	}
 	
 	public String toString() {
-		return nombre + " " + dni + " "  + salario;
+		return "Nombre: " + nombre + ", DNI: " + dni + ", Salario: "  + salario;
 	}
 }

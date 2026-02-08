@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Empresa {
 	 private String nombre;
 	private ArrayList<Empleado> listaEmpleados;
+	
+	public Empresa() {}
 	 
 	public Empresa(String nombre) {
 			this.nombre = nombre;
@@ -23,11 +25,18 @@ public class Empresa {
 		double sum = 0;
 		for(Empleado empleado : listaEmpleados) {
 			sum+=empleado.getSalario();
+			if(empleado instanceof EmpleadoProduccion) {
+				sum+=((EmpleadoProduccion) empleado).getPlusNoct();
+			}
 		}
 		return sum;
 	}
 	
 	public String toString() {
-		return nombre + " " + listaEmpleados.toString();
+		String cadena = nombre;
+		for(Empleado empleado : listaEmpleados) {
+			cadena+="\n"+empleado.toString();
+		}
+		return cadena;
 	}
 }

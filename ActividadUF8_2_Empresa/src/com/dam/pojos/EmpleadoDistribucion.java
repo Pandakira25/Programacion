@@ -10,6 +10,6 @@ public class EmpleadoDistribucion extends Empleado {
 	}
 	
 	public String toString() {
-		return super.toString() + " " + zona;
+		return super.toString() + ", Zona: " + zona + "\n";
 	}
 }
