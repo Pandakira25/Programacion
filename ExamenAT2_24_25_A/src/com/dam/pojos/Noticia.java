@@ -3,6 +3,7 @@ package com.dam.pojos;
 public class Noticia {
 	
 	public static final String ESTADOS []= {"BORRADOR","PUBLICADA","ARCHIVADA"};
+	public static final String TIPOS [] = {"Noticia Política", "Noticia Deportiva", "Noticia Económica"};
 	
 	protected String titulo;
 	protected String fecha;

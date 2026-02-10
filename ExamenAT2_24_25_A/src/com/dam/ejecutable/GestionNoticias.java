@@ -51,14 +51,14 @@ public class GestionNoticias {
 		
 	}
 
-	private static void modNew() {
+	private static void modNew(Scanner sc,ArrayList<Noticia> noticias1) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	private static void addNews(Scanner sc, ArrayList<Noticia> noticias) {
-		// TODO Auto-generated method stub
-		
+		int op=0;
+		System.out.println("Que clase de noticia desea agregar?(Ingrese el número correspondiente)" + "\n" + Noticia.TIPOS[0] + "(0) o " + Noticia.TIPOS[1] + "(1) o " + Noticia.TIPOS[2] + "(2)") ;
 	}
 
 	private static int reqOpt(Scanner sc) {
