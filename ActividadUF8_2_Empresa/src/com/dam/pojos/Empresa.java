@@ -26,6 +26,7 @@ public class Empresa {
 		for(Empleado empleado : listaEmpleados) {
 			sum+=empleado.getSalario();
 			if(empleado instanceof EmpleadoProduccion) {
+				//aca debería comprobar si el turno del empleado era nocturno 
 				sum+=((EmpleadoProduccion) empleado).getPlusNoct();
 			}
 		}

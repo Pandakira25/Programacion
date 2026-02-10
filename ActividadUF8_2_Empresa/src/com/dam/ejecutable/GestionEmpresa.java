@@ -20,6 +20,7 @@ public class GestionEmpresa {
 				addEmpleado(sc,e1);
 				break;
 			case 2:
+				//debería haber pensado de si no tenía nada agregado
 				System.out.println(e1.toString());
 				System.out.println("\nTotal de salarios: " + e1.calcularTotalSalarios());
 				break;
