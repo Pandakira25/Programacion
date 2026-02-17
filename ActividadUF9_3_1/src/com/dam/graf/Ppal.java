@@ -7,6 +7,8 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 
 public class Ppal extends JFrame{
 	public Ppal() {
@@ -36,7 +38,7 @@ public class Ppal extends JFrame{
 		getContentPane().add(textReadT);
 		textReadT.setColumns(10);
 		
-		JLabel lblRes = new JLabel("New label");
+		JLabel lblRes = new JLabel("Para descubrir si es par o  impar mira aqui");
 		lblRes.setBounds(58, 148, 916, 14);
 		getContentPane().add(lblRes);
 		
