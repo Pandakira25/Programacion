@@ -103,8 +103,6 @@ public class GestionSocios {
 						}while(!valid);
 						((SocioBono) socios.get(i)).recargarBono(numSesiones);
 						System.out.println("Sesiones recargadas");
-					}else {
-						System.out.println("No tiene plan de bono");
 					}
 				}catch(NumberFormatException e) {
 					System.out.println("Debe ser un número entero");
@@ -113,7 +111,7 @@ public class GestionSocios {
 		}
 		
 		if(noCont == true) {
-			System.out.println("No se encuentra en la lista");
+			System.out.println("No se encuentra en la lista o No tiene plan de bono");
 		}
 		
 	}
