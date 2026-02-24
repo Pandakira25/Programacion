@@ -1,0 +1,68 @@
+// OPCIONES PARA RECORRER UNA LISTA
+		ArrayList<Integer> lista;
+		
+		// OPCIÓN 1: for each
+		for (Integer entero : lista) {
+			System.out.print(entero + " ");
+		}
+		System.out.println();
+		
+		// OPCIÓN 2: for recorriendo posiciones
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.print(lista.get(i) + " ");
+		}
+		System.out.println();
+		
+		// OPCIÓN 3: iterator
+		Iterator<Integer> it = lista.iterator();
+		Integer entero;
+		
+		while (it.hasNext()) {
+			entero = it.next();
+			System.out.print(entero + " ");
+		}
+		System.out.println();
+		
+// OPCIONES PARA RECORRER UN MAPA
+		HashMap<Integer, Integer> mapa;
+		
+		// OPCIÓN 1: recorriendo la colección de las claves
+		for (Integer key: mapa.keySet()) {
+			System.out.println(key + " - " + mapa.get(key));
+		}
+		
+		// OPCIÓN 2: recorriendo la colección de los valores
+		for (Integer value: mapa.values()) {
+			System.out.println(value);
+		}
+		
+		// OPCIÓN 3: recorriendo la colección de los entries
+		for (Entry<Integer, Integer> registro: mapa.entrySet()) {
+			System.out.println(registro.getKey() + " - " + registro.getValue());
+		}
+		
+// OPCIONES PARA RECORRER UN CONJUNTO (SET)
+		HashSet<Integer> conjunto = new HashSet<Integer>();
+		
+		// OPCIÓN 1: for each
+		for (Integer entero : conjunto) {
+			System.out.print(entero + " ");
+		}
+		System.out.println();
+		
+		// OPCIÓN 2: iterator
+		Iterator<Integer> it = conjunto.iterator();
+		Integer entero;
+		
+		while (it.hasNext() && condicion) {
+			entero = it.next();
+			System.out.print(entero + " ");
+		}
+		System.out.println();
+	
+// COMPARACIÓN DE BOOLEANOS
+
+boolean condicion = obtenerValor();	
+		
+if (condicion == true) --> if (condicion) 
+if (condicion == false) --> if (!condicion)
