@@ -2,10 +2,13 @@ package com.dam.graf;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
+import javax.swing.border.Border;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -39,7 +42,7 @@ public class Ppal extends JFrame{
 		textReadT.setColumns(10);
 		
 		JLabel lblRes = new JLabel("Para descubrir si es par o  impar mira aqui");
-		lblRes.setBounds(58, 148, 916, 14);
+		lblRes.setBounds(58, 148, 242, 14);
 		getContentPane().add(lblRes);
 		
 		
@@ -47,6 +50,7 @@ public class Ppal extends JFrame{
 		btnConfirm.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					lblRes.setBorder(BorderFactory.createLineBorder(new Color(0, 0 ,0), 0));
 					int num = Integer.parseInt(textReadT.getText());
 					if(num % 2 == 0) {
 						lblRes.setText("El número introducido es par");
@@ -54,7 +58,8 @@ public class Ppal extends JFrame{
 						lblRes.setText("El número introducido es inpar");
 					}
 				}catch(NumberFormatException x) {
-					lblRes.setText("Introduce un puto número");
+					lblRes.setText("Introduce un número");
+					lblRes.setBorder(BorderFactory.createLineBorder(new Color(255, 0 ,0), 2));
 				}
 				
 			}
