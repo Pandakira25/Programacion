@@ -20,7 +20,7 @@ public class Ecuacion2GListener implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO: Especificar que va a ocurrir cuando se detecte un evento de tipo action en la interfaz gráfica
-		System.out.println("Se ha pulsado el boton");
+		//System.out.println("Se ha pulsado el boton");//
 		Ecuacion2G e2g = v.obtenerDatos();
 		if(e2g != null) {
 			Double[] soluciones = e2g.resolverEquacion();

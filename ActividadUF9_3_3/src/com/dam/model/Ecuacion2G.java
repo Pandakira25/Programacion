@@ -19,9 +19,13 @@ public class Ecuacion2G {
 		//x[1] = (-b - math.sqrt(b*b - 4*a*c) ) / 2*a
 		Double[] x = new Double[2];
 		
+		/*System.out.println(A);
+		System.out.println(B);
+		System.out.println(C);*/
+		
 		if(A != 0 && (B*B - 4 * A*C) >= 0) {
 			x[0] = (-B + Math.sqrt(B*B - 4*A*C) ) / 2*A;
-			x[0] = (-B - Math.sqrt(B*B - 4*A*C) ) / 2*A;
+			x[1] = (-B - Math.sqrt(B*B - 4*A*C) ) / 2*A;
 		}
 		
 		return x;

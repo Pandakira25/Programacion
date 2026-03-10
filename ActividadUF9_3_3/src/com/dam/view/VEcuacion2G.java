@@ -103,6 +103,8 @@ public class VEcuacion2G extends JFrame {
 			int c = Integer.parseInt(sC);
 			
 			e2g = new Ecuacion2G(a,b,c);
+			
+			//System.out.println(e2g.resolverEquacion()[0] + "" + e2g.resolverEquacion()[1]);//
 		}catch(NumberFormatException e) {
 			mostrarError("Error: Los valores deben ser enteros");
 		}
