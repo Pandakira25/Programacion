@@ -20,6 +20,7 @@ public class Inicio {
 				//Pasarle la lista de alumnos a la vista
 				//Lo que tenga el toString de la clase pojo es lo que va a visualisar
 				vp.cargarCmbAlumnos(laModel.getListaAlumnos());
+				vp.cargarLstAlumnos(laModel.getListaAlumnos());
 				
 				vp.setControlador(control);
 				

@@ -7,19 +7,19 @@ import com.dam.main.VentanaPruebas;
 
 public class ControladorP implements ActionListener {
 	
-	private VentanaPruebas vp;
-	
+	private VentanaPruebas vp;	
+
 	public ControladorP(VentanaPruebas vp) {
 		this.vp = vp;
 	}
 
-
-
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		//tomar los datos introducidos en la ventana y mostrarlos en el text área
+		// recoger los datos introducidos en la ventana 
 		String datos = vp.obtenerDatos();
-		vp.mostrarDatos(datos);
+		// y mostrarlos en el textArea
+		vp.mostrarDatosIntroducidos(datos);
+
 	}
 
 }

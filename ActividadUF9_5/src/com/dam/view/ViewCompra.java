@@ -23,10 +23,10 @@ public class ViewCompra extends JFrame implements IVCompra {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JSpinner spnCant;
-	private JComboBox comboBox;
+	private JComboBox<String> comboBox;
 	private JButton btnAdd;
 	private JButton btnDell;
-	private JList listCompra;
+	private JList <Producto>listCompra;
 	
 	public ViewCompra () {
 		configurarVentana();
@@ -47,6 +47,10 @@ public class ViewCompra extends JFrame implements IVCompra {
 		Dimension ventana = new Dimension(ANCHO, ALTO);
 		// Una cuenta para situar la ventana en el centro de la pantalla.
 		setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 2);
+		
+	}
+	
+	public void crearComponentes() {
 		getContentPane().setLayout(null);
 		
 		textField = new JTextField();
@@ -67,8 +71,8 @@ public class ViewCompra extends JFrame implements IVCompra {
 		lblCant.setBounds(186, 82, 48, 14);
 		getContentPane().add(lblCant);
 		
-		comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Kg", "g", "L", "Ud"}));
+		comboBox = new JComboBox<String>();
+		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Kg", "g", "L", "Ud"}));
 		comboBox.setBounds(265, 106, 67, 22);
 		getContentPane().add(comboBox);
 		
@@ -81,12 +85,13 @@ public class ViewCompra extends JFrame implements IVCompra {
 		getContentPane().add(btnAdd);
 		
 		JLabel lblMsgAdd = new JLabel("Introduce los siguientes datos para añadir un producto a la lista de la compra");
-		lblMsgAdd.setBounds(58, 37, 393, 14);
+		lblMsgAdd.setBounds(58, 37, 408, 14);
 		getContentPane().add(lblMsgAdd);
 		
-		listCompra = new JList();
+		listCompra = new JList<Producto>();
 		listCompra.setBounds(552, 55, 254, 269);
 		getContentPane().add(listCompra);
+		
 		
 		textField_1 = new JTextField();
 		textField_1.setBounds(58, 375, 96, 20);
@@ -98,7 +103,7 @@ public class ViewCompra extends JFrame implements IVCompra {
 		getContentPane().add(lblNombreD);
 		
 		JLabel lblMsgDell = new JLabel("Ingrese el nombre del producto a eliminar");
-		lblMsgDell.setBounds(56, 325, 217, 14);
+		lblMsgDell.setBounds(56, 325, 235, 14);
 		getContentPane().add(lblMsgDell);
 		
 		JLabel lblListC = new JLabel("Lista de la compra");
@@ -108,10 +113,6 @@ public class ViewCompra extends JFrame implements IVCompra {
 		btnDell = new JButton("Eliminar");
 		btnDell.setBounds(58, 410, 88, 22);
 		getContentPane().add(btnDell);
-	}
-	
-	public void crearComponentes() {
-		
 		
 	}
 	
@@ -122,7 +123,7 @@ public class ViewCompra extends JFrame implements IVCompra {
 
 	
 	public void setControlador(CtrlCompraAdd cc) {
-		
+		//TODO
 	}
 
 	public Producto getProduct() {
