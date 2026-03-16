@@ -3,6 +3,7 @@ package com.dam.main;
 import java.awt.EventQueue;
 
 import com.dam.control.CtrlCompraAdd;
+import com.dam.control.CtrlCompraDell;
 import com.dam.view.ViewCompra;
 
 public class index {
@@ -14,9 +15,10 @@ public class index {
 			public void run() {
 				// TODO Auto-generated method stub
 				ViewCompra vc = new ViewCompra();
-				CtrlCompraAdd cc = new CtrlCompraAdd(vc);
+				CtrlCompraAdd cca = new CtrlCompraAdd(vc);
+				CtrlCompraDell ccd = new CtrlCompraDell(vc);
 				
-				vc.setControlador(cc);
+				vc.setControlador(cca,ccd);
 				vc.hacerVisible();
 			}
 		});
