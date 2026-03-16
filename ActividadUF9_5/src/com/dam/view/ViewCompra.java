@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import com.dam.control.CtrlCompraAdd;
+import com.dam.control.CtrlCompraDell;
 import com.dam.model.Producto;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
@@ -17,16 +18,16 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JList;
 
-public class ViewCompra extends JFrame implements IVCompra {
+public class ViewCompra extends JFrame {
 	private static final int ANCHO = 1000;
 	private static final int ALTO = 800;
 	private JTextField textField;
-	private JTextField textField_1;
 	private JSpinner spnCant;
 	private JComboBox<String> comboBox;
 	private JButton btnAdd;
 	private JButton btnDell;
 	private JList <Producto>listCompra;
+	private JTextField textField_1;
 	
 	public ViewCompra () {
 		configurarVentana();
@@ -92,7 +93,6 @@ public class ViewCompra extends JFrame implements IVCompra {
 		listCompra.setBounds(552, 55, 254, 269);
 		getContentPane().add(listCompra);
 		
-		
 		textField_1 = new JTextField();
 		textField_1.setBounds(58, 375, 96, 20);
 		getContentPane().add(textField_1);
@@ -101,9 +101,9 @@ public class ViewCompra extends JFrame implements IVCompra {
 		JLabel lblNombreD = new JLabel("Nombre");
 		lblNombreD.setBounds(56, 350, 48, 14);
 		getContentPane().add(lblNombreD);
-		
-		JLabel lblMsgDell = new JLabel("Ingrese el nombre del producto a eliminar");
-		lblMsgDell.setBounds(56, 325, 235, 14);
+
+		JLabel lblMsgDell = new JLabel("Seleccione un producto en la lista para eliminarlo");
+		lblMsgDell.setBounds(552, 362, 254, 14);
 		getContentPane().add(lblMsgDell);
 		
 		JLabel lblListC = new JLabel("Lista de la compra");
@@ -111,7 +111,7 @@ public class ViewCompra extends JFrame implements IVCompra {
 		getContentPane().add(lblListC);
 		
 		btnDell = new JButton("Eliminar");
-		btnDell.setBounds(58, 410, 88, 22);
+		btnDell.setBounds(552, 399, 88, 22);
 		getContentPane().add(btnDell);
 		
 	}
@@ -121,16 +121,26 @@ public class ViewCompra extends JFrame implements IVCompra {
 		setVisible(true);
 	}
 
-	
 	public void setControlador(CtrlCompraAdd cc) {
 		//TODO
+	}
+	public void setControlador(CtrlCompraAdd cca, CtrlCompraDell ccd) {
+		//TODO
+		//To add read the aniadir button
+		//to delete read the eliminar button
 	}
 
 	public Producto getProduct() {
 		// TODO Auto-generated method stub
 		Producto p = null;
+		
 		//get del nombre(txtfield), cantidad(JSpinner) y unidad(JComboBox) -> pasarselo a variables para pasarselas al constructor del p
 		return p;
+	}
+	
+	public int getIndexJlist() {
+		//TODO
+		return 0;
 	}
 
 	public void showD() {
