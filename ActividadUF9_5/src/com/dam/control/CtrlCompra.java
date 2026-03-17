@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 import com.dam.model.ListaCompra;
 import com.dam.view.ViewCompra;
 
-public class CtrlCompraAdd implements ActionListener{
+public class CtrlCompra implements ActionListener{
 	
 	ViewCompra vc = new ViewCompra();
 	ListaCompra lc = new ListaCompra();
 	
-	public CtrlCompraAdd (ViewCompra vc) {
+	public CtrlCompra (ViewCompra vc) {
 		this.vc=vc;
 	}
 	

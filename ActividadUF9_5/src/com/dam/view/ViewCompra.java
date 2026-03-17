@@ -10,7 +10,7 @@ import java.util.TimerTask;
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
-import com.dam.control.CtrlCompraAdd;
+import com.dam.control.CtrlCompra;
 import com.dam.model.Producto;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
@@ -46,10 +46,14 @@ public class ViewCompra extends JFrame {
 	}
 
 	public void configurarVentana() {
-		setTitle("Pruebas con componentes swing");
+		setTitle("Lista Compra");
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
+		configSize();
+	}
+
+	private void configSize() {
 		setSize(ANCHO, ALTO);
 		
 		Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
@@ -57,7 +61,6 @@ public class ViewCompra extends JFrame {
 		Dimension ventana = new Dimension(ANCHO, ALTO);
 
 		setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 2);
-		
 	}
 	
 	public void crearComponentes() {
@@ -142,7 +145,7 @@ public class ViewCompra extends JFrame {
 		setVisible(true);
 	}
 
-	public void setControlador(CtrlCompraAdd cc) {
+	public void setControlador(CtrlCompra cc) {
 		//TODO
 		btnAdd.setActionCommand("ADD");
 		btnDell.setActionCommand("DELETE");

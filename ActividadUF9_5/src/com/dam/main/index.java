@@ -2,7 +2,7 @@ package com.dam.main;
 
 import java.awt.EventQueue;
 
-import com.dam.control.CtrlCompraAdd;
+import com.dam.control.CtrlCompra;
 import com.dam.view.ViewCompra;
 
 public class index {
@@ -12,7 +12,7 @@ public class index {
 			
 			public void run() {
 				ViewCompra vc = new ViewCompra();
-				CtrlCompraAdd cca = new CtrlCompraAdd(vc);
+				CtrlCompra cca = new CtrlCompra(vc);
 				
 				vc.setControlador(cca);
 				vc.hacerVisible();
