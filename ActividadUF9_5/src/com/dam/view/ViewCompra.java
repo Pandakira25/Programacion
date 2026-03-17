@@ -1,33 +1,44 @@
 package com.dam.view;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import javax.swing.JFrame;
 import javax.swing.WindowConstants;
 
 import com.dam.control.CtrlCompraAdd;
-import com.dam.control.CtrlCompraDell;
 import com.dam.model.Producto;
 import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import javax.swing.ScrollPaneConstants;
 import javax.swing.JLabel;
 import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JList;
+import javax.swing.JScrollPane;
+import javax.swing.SwingConstants;
+import java.awt.Font;
 
 public class ViewCompra extends JFrame {
 	private static final int ANCHO = 1000;
-	private static final int ALTO = 800;
-	private JTextField textField;
+	private static final int ALTO = 500;
+	private JTextField txtName;
 	private JSpinner spnCant;
-	private JComboBox<String> comboBox;
+	private JComboBox<String> cmbUnity;
 	private JButton btnAdd;
 	private JButton btnDell;
 	private JList <Producto>listCompra;
-	private JTextField textField_1;
+	private JLabel lblErrors;
+	private DefaultListModel<Producto> dlmCompra;
+	private JButton btnClearList;
 	
 	public ViewCompra () {
 		configurarVentana();
@@ -41,12 +52,10 @@ public class ViewCompra extends JFrame {
 		
 		setSize(ANCHO, ALTO);
 		
-		// centrar la ventana en la pantalla
-		// Se obtienen las dimensiones en pixels de la pantalla.
 		Dimension pantalla = Toolkit.getDefaultToolkit().getScreenSize();
-		// Se obtienen las dimensiones en pixels de la ventana.
+
 		Dimension ventana = new Dimension(ANCHO, ALTO);
-		// Una cuenta para situar la ventana en el centro de la pantalla.
+
 		setLocation((pantalla.width - ventana.width) / 2, (pantalla.height - ventana.height) / 2);
 		
 	}
@@ -54,68 +63,80 @@ public class ViewCompra extends JFrame {
 	public void crearComponentes() {
 		getContentPane().setLayout(null);
 		
-		textField = new JTextField();
-		textField.setBounds(58, 107, 96, 20);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		txtName = new JTextField();
+		txtName.setBounds(22, 96, 96, 20);
+		getContentPane().add(txtName);
+		txtName.setColumns(10);
 		
 		JLabel lblName = new JLabel("Nombre");
-		lblName.setBounds(56, 82, 48, 14);
+		lblName.setBounds(20, 71, 48, 14);
 		getContentPane().add(lblName);
 		
 		spnCant = new JSpinner();
 		spnCant.setModel(new SpinnerNumberModel(1, 1, 500, 1));
-		spnCant.setBounds(186, 107, 48, 20);
+		spnCant.setBounds(150, 96, 48, 20);
 		getContentPane().add(spnCant);
 		
 		JLabel lblCant = new JLabel("Cantidad");
-		lblCant.setBounds(186, 82, 48, 14);
+		lblCant.setBounds(150, 71, 48, 14);
 		getContentPane().add(lblCant);
 		
-		comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<String>(new String[] {"Kg", "g", "L", "Ud"}));
-		comboBox.setBounds(265, 106, 67, 22);
-		getContentPane().add(comboBox);
+		cmbUnity = new JComboBox<String>();
+		cmbUnity.setModel(new DefaultComboBoxModel<String>(new String[] {"Kg", "g", "L", "Ud"}));
+		cmbUnity.setBounds(229, 95, 67, 22);
+		getContentPane().add(cmbUnity);
 		
 		JLabel lblUni = new JLabel("Unidad");
-		lblUni.setBounds(265, 82, 48, 14);
+		lblUni.setBounds(229, 71, 48, 14);
 		getContentPane().add(lblUni);
 		
 		btnAdd = new JButton("Añadir");
-		btnAdd.setBounds(58, 166, 88, 22);
+		btnAdd.setBounds(22, 155, 88, 22);
 		getContentPane().add(btnAdd);
 		
 		JLabel lblMsgAdd = new JLabel("Introduce los siguientes datos para añadir un producto a la lista de la compra");
-		lblMsgAdd.setBounds(58, 37, 408, 14);
+		lblMsgAdd.setBounds(22, 26, 433, 14);
 		getContentPane().add(lblMsgAdd);
 		
+		JScrollPane scrpLista = new JScrollPane();
+		scrpLista.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		scrpLista.setBounds(552, 55, 254, 269);
+		getContentPane().add(scrpLista);
+		
 		listCompra = new JList<Producto>();
-		listCompra.setBounds(552, 55, 254, 269);
-		getContentPane().add(listCompra);
+		listCompra.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		scrpLista.setViewportView(listCompra);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(58, 375, 96, 20);
-		getContentPane().add(textField_1);
-		textField_1.setColumns(10);
-		
-		JLabel lblNombreD = new JLabel("Nombre");
-		lblNombreD.setBounds(56, 350, 48, 14);
-		getContentPane().add(lblNombreD);
+		dlmCompra = new DefaultListModel<Producto>();
+		listCompra.setModel(dlmCompra);
 
 		JLabel lblMsgDell = new JLabel("Seleccione un producto en la lista para eliminarlo");
-		lblMsgDell.setBounds(552, 362, 254, 14);
+		lblMsgDell.setBounds(552, 362, 276, 14);
 		getContentPane().add(lblMsgDell);
 		
 		JLabel lblListC = new JLabel("Lista de la compra");
-		lblListC.setBounds(552, 26, 110, 14);
+		lblListC.setBounds(552, 26, 128, 14);
 		getContentPane().add(lblListC);
 		
 		btnDell = new JButton("Eliminar");
 		btnDell.setBounds(552, 399, 88, 22);
 		getContentPane().add(btnDell);
 		
+		lblErrors = new JLabel("");
+		lblErrors.setFont(new Font("Tahoma", Font.BOLD, 12));
+		lblErrors.setVerticalAlignment(SwingConstants.TOP);
+		lblErrors.setBounds(32, 378, 471, 43);
+		getContentPane().add(lblErrors);
+		
+		btnClearList = new JButton("Limpiar");
+		btnClearList.setBounds(665, 399, 88, 22);
+		getContentPane().add(btnClearList);
+		
 	}
 	
+	public int getListIndex() {
+		return listCompra.getSelectedIndex();
+	}
 	
 	public void hacerVisible() {
 		setVisible(true);
@@ -123,28 +144,48 @@ public class ViewCompra extends JFrame {
 
 	public void setControlador(CtrlCompraAdd cc) {
 		//TODO
-	}
-	public void setControlador(CtrlCompraAdd cca, CtrlCompraDell ccd) {
-		//TODO
-		//To add read the aniadir button
-		//to delete read the eliminar button
+		btnAdd.setActionCommand("ADD");
+		btnDell.setActionCommand("DELETE");
+		btnClearList.setActionCommand("CLEAR");
+		btnAdd.addActionListener(cc);
+		btnDell.addActionListener(cc);
+		btnClearList.addActionListener(cc);
 	}
 
 	public Producto getProduct() {
-		// TODO Auto-generated method stub
-		Producto p = null;
+		String name = validName();
+		//I`m not realy sure about this
+		if(name == null) {
+			return null;
+		}
+		int amount = (int) spnCant.getValue();
+		String unity = (String) cmbUnity.getSelectedItem();
 		
-		//get del nombre(txtfield), cantidad(JSpinner) y unidad(JComboBox) -> pasarselo a variables para pasarselas al constructor del p
-		return p;
-	}
-	
-	public int getIndexJlist() {
-		//TODO
-		return 0;
+		return new Producto(name,amount,unity);
 	}
 
-	public void showD() {
-		// TODO Show the data in the JList
-		
+	private String validName() {
+		if(txtName.getText().isEmpty()) {
+			showMsg("El nombre no puede estar vacío");
+			return null;
+		}
+		return txtName.getText();
+	}
+	
+	public void showMsg(String msg){
+		lblErrors.setText(msg);
+		lblErrors.setForeground(Color.red);
+	}
+
+	public void showD(ArrayList<Producto> lc) {
+		dlmCompra.clear();
+		dlmCompra.addAll(lc);
+		//Profe: Me he tomado la libertad cretiva de buscar como hacer un timer y ponerlo
+		Timer t = new Timer();
+		t.schedule(new TimerTask() {
+			public void run() {
+				lblErrors.setText(null);
+			}
+		},3000);
 	}
 }

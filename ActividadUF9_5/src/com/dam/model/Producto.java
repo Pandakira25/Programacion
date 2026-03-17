@@ -18,7 +18,7 @@ public class Producto {
 	}
 	
 	public String toString() {
-		return nombre + " - Cantidad: " + cantidad + " - Unidades: " + unidades;
+		return nombre + " - " + cantidad + " " + unidades;
 	}
 
 	@Override
