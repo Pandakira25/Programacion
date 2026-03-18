@@ -12,6 +12,7 @@ public class index {
 			public void run() {
 				// TODO Auto-generated method stub
 				VEncuesta ve = new VEncuesta();
+				ve.hacerVisible();
 			}
 			
 		});
