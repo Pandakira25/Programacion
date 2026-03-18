@@ -76,6 +76,7 @@ public class ViewCompra extends JFrame {
 		getContentPane().add(lblName);
 		
 		spnCant = new JSpinner();
+		spnCant.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		spnCant.setModel(new SpinnerNumberModel(1, 1, 500, 1));
 		spnCant.setBounds(150, 96, 48, 31);
 		getContentPane().add(spnCant);
@@ -85,8 +86,9 @@ public class ViewCompra extends JFrame {
 		getContentPane().add(lblCant);
 		
 		cmbUnity = new JComboBox<String>();
+		cmbUnity.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		cmbUnity.setModel(new DefaultComboBoxModel<String>(new String[] {"Kg", "g", "L", "Ud"}));
-		cmbUnity.setBounds(229, 95, 67, 22);
+		cmbUnity.setBounds(229, 95, 67, 32);
 		getContentPane().add(cmbUnity);
 		
 		JLabel lblUni = new JLabel("Unidad");
@@ -94,11 +96,13 @@ public class ViewCompra extends JFrame {
 		getContentPane().add(lblUni);
 		
 		btnAdd = new JButton("Añadir");
+		btnAdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnAdd.setBounds(22, 155, 88, 22);
 		getContentPane().add(btnAdd);
 		
 		JLabel lblMsgAdd = new JLabel("Introduce los siguientes datos para añadir un producto a la lista de la compra");
-		lblMsgAdd.setBounds(22, 26, 433, 14);
+		lblMsgAdd.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		lblMsgAdd.setBounds(22, 26, 499, 14);
 		getContentPane().add(lblMsgAdd);
 		
 		JScrollPane scrpLista = new JScrollPane();
@@ -114,14 +118,17 @@ public class ViewCompra extends JFrame {
 		listCompra.setModel(dlmCompra);
 
 		JLabel lblMsgDell = new JLabel("Seleccione un producto en la lista para eliminarlo");
+		lblMsgDell.setFont(new Font("Tahoma", Font.PLAIN, 12));
 		lblMsgDell.setBounds(552, 362, 276, 14);
 		getContentPane().add(lblMsgDell);
 		
 		JLabel lblListC = new JLabel("Lista de la compra");
+		lblListC.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblListC.setBounds(552, 26, 128, 14);
 		getContentPane().add(lblListC);
 		
 		btnDell = new JButton("Eliminar");
+		btnDell.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnDell.setBounds(552, 399, 88, 22);
 		getContentPane().add(btnDell);
 		
@@ -132,6 +139,7 @@ public class ViewCompra extends JFrame {
 		getContentPane().add(lblErrors);
 		
 		btnClearList = new JButton("Limpiar");
+		btnClearList.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		btnClearList.setBounds(665, 399, 88, 22);
 		getContentPane().add(btnClearList);
 		
