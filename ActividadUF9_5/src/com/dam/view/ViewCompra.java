@@ -77,7 +77,7 @@ public class ViewCompra extends JFrame {
 		
 		spnCant = new JSpinner();
 		spnCant.setModel(new SpinnerNumberModel(1, 1, 500, 1));
-		spnCant.setBounds(150, 96, 48, 20);
+		spnCant.setBounds(150, 96, 48, 31);
 		getContentPane().add(spnCant);
 		
 		JLabel lblCant = new JLabel("Cantidad");
