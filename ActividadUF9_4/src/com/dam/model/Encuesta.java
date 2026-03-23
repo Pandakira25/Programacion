@@ -3,12 +3,12 @@ package com.dam.model;
 public class Encuesta {
 	
 	//Constantes
-	static final String POSIBLES_SINTOMAS[] = {"Síntomas respiratorios","Perdida del olfato", "Dolor de cabeza", "Sin sintomas" ,"Cansancio/Malestar","Perdida del gusto", "Fiebre","Tos seca"};
+	public static final String POSIBLES_SINTOMAS[] = {"Síntomas respiratorios","Perdida del olfato", "Dolor de cabeza", "Sin sintomas" ,"Cansancio/Malestar","Perdida del gusto", "Fiebre","Tos seca"};
 	
-	static final int NIVELES_DE_GRAVEDAD [] = {1,2,3,4,5};
-	static final String NIVELES_DE_GRAVEDAD_S []= {"Ninguna","Leve","Media","Alta","Hospitalizaación"};
+	public static final int NIVELES_DE_GRAVEDAD [] = {1,2,3,4,5};
+	public static final String NIVELES_DE_GRAVEDAD_S []= {"Ninguna","Leve","Media","Alta","Hospitalizaación"};
 	
-	static final String HA_PASADO_COVID_RESP []= {"Si","No"};
+	public static final String HA_PASADO_COVID_RESP []= {"Si","No"};
 
 	//Atributos
 	private int edad;

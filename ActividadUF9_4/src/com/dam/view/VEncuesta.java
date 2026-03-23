@@ -241,11 +241,10 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		int edad = (int)spnEdad.getValue();
 		String covid = (String) cmbCovid.getSelectedItem();
 		String sintomas[] = new String[8];
-		for(int i = 0; i < sintomas.length; i++) {
-			if(chbCanMal.isSelected()) {
-				
-			}
+		if(chbCanMal.isSelected() || chbDolCab.isSelected() || chbFiebre.isSelected() || chbPerGus.isSelected() || chbPerOlf.isSelected() || chbSinRes.isSelected() || chbTos.isSelected()) {
+			chbSinS.setSelected(false);
 		}
+		
 		return null;
 	}
 
