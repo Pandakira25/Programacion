@@ -2,6 +2,7 @@ package com.dam.main;
 
 import java.awt.EventQueue;
 
+import com.dam.control.CtrlEncuesta;
 import com.dam.view.VEncuesta;
 
 public class index {
@@ -13,6 +14,8 @@ public class index {
 				// TODO Auto-generated method stub
 				VEncuesta ve = new VEncuesta();
 				ve.hacerVisible();
+				CtrlEncuesta ce = new CtrlEncuesta(ve);
+				ve.setControlador(ce);
 			}
 			
 		});

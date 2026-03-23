@@ -186,11 +186,6 @@ public class ViewCompra extends JFrame {
 	public void showMsg(String msg){
 		lblErrors.setText(msg);
 		lblErrors.setForeground(Color.red);
-	}
-
-	public void showD(ArrayList<Producto> lc) {
-		dlmCompra.clear();
-		dlmCompra.addAll(lc);
 		//Profe: Me he tomado la libertad cretiva de buscar como hacer un timer y ponerlo
 		Timer t = new Timer();
 		t.schedule(new TimerTask() {
@@ -198,5 +193,10 @@ public class ViewCompra extends JFrame {
 				lblErrors.setText(null);
 			}
 		},3000);
+	}
+
+	public void showD(ArrayList<Producto> lc) {
+		dlmCompra.clear();
+		dlmCompra.addAll(lc);
 	}
 }

@@ -17,7 +17,7 @@ public class CtrlCompra implements ActionListener{
 	
 	public void actionPerformed(ActionEvent e) {
 		String btn = e.getActionCommand();
-		System.out.println(btn);
+		//System.out.println(btn);
 		
 		//This can be a switch right?
 		if(btn.equals("ADD")) {
@@ -25,8 +25,7 @@ public class CtrlCompra implements ActionListener{
 				lc.addProduct(vc.getProduct());
 			}
 		}else if(btn.equals("DELETE")) {
-			//TODO
-			System.out.println(vc.getListIndex());
+			//System.out.println(vc.getListIndex());
 			if(vc.getListIndex() >= 0) {
 				lc.dellProduct(vc.getListIndex());
 			}else {

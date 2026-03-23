@@ -1,5 +1,6 @@
 package com.dam.control;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -24,12 +25,25 @@ public class CtrlEncuesta implements ActionListener {
 		String btn = e.getActionCommand();
 		if(e.getSource() instanceof JButton) {
 			if(btn.equals("GUARDAR")) {
-				le.addLstEncuesta(ve.getEncuesta());
-				ve.clearE();
+				if(ve.getEncuesta() != null) {
+					le.addLstEncuesta(ve.getEncuesta());
+					ve.clearE();
+					ve.showMsg("Encuesta añadida correctamente", Color.GREEN);
+				}else {
+					ve.showMsg("No ha completado la encuesta", Color.RED);
+				}
 			}else if(btn.equals("LIMPIAR")){
-				le.clear();
+				if(le.getLstEncuesta().size() != 0) {
+					le.clear();
+				}else {
+					ve.showMsg("Lista vacía", Color.RED);
+				}
 			}else if(btn.equals("VERE")) {
-				ve.showE();
+				if(le.getLstEncuesta().size() != 0) {
+					ve.showE(le.getLstEncuesta());
+				}else {
+					ve.showMsg("No hay encuestas", Color.RED);
+				}
 			}
 		}
 	}
