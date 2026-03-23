@@ -11,9 +11,9 @@ public class index {
 		EventQueue.invokeLater(new Runnable() {
 			@Override
 			public void run() {
-				// TODO Auto-generated method stub
 				VEncuesta ve = new VEncuesta();
 				ve.hacerVisible();
+				
 				CtrlEncuesta ce = new CtrlEncuesta(ve);
 				ve.setControlador(ce);
 			}

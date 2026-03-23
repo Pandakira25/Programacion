@@ -15,7 +15,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JSpinner;
 import javax.swing.ListSelectionModel;
 import javax.swing.ScrollPaneConstants;
-import javax.swing.SingleSelectionModel;
 import javax.swing.SpinnerNumberModel;
 import javax.swing.WindowConstants;
 
@@ -36,11 +35,11 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 	private JList<Encuesta> lstEncuesta;
 	private DefaultListModel<Encuesta> dlmEncuesta;
 	private final ButtonGroup rbtnNivG = new ButtonGroup();
-	private JRadioButton rdbtnNewRadioButton;
-	private JRadioButton rdbtnNewRadioButton_1;
-	private JRadioButton rdbtnNewRadioButton_2;
-	private JRadioButton rdbtnNewRadioButton_3;
-	private JRadioButton rdbtnNewRadioButton_4;
+	private JRadioButton rdbtnNinguna;
+	private JRadioButton rdbtnLeve;
+	private JRadioButton rdbtnMedia;
+	private JRadioButton rdbtnAlta;
+	private JRadioButton rdbtnHospitalizacion;
 	private JButton btnGuardar;
 	private JButton btnVerEn;
 	private JButton btnLimpiar;
@@ -82,7 +81,6 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 
 	@Override
 	public void crearComponentes() {
-		// TODO Auto-generated method stub
 		getContentPane().setLayout(null);
 		
 		JLabel lblEdad = new JLabel("Edad");
@@ -91,7 +89,6 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		getContentPane().add(lblEdad);
 		
 		JScrollPane scrlLst = new JScrollPane();
-		scrlLst.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		scrlLst.setBounds(10,400,564,150);
 		getContentPane().add(scrlLst);
 		
@@ -120,23 +117,23 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		spnEdad.setBounds(60, 12, 52, 28);
 		getContentPane().add(spnEdad);
 		
-		JLabel lblCovid = new JLabel("\u00BFHa pasado usted COVID-19?");
+		JLabel lblCovid = new JLabel("¿Ha pasado usted COVID-19?");
 		lblCovid.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblCovid.setBounds(10, 59, 191, 14);
 		getContentPane().add(lblCovid);
 		
 		cmbCovid = new JComboBox<String>();
 		cmbCovid.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		cmbCovid.setModel(new DefaultComboBoxModel<String>(new String[] {"SI", "NO"}));
-		cmbCovid.setBounds(211, 57, 40, 22);
+		cmbCovid.setModel(new DefaultComboBoxModel<String>(new String[] {"No", "SI"}));
+		cmbCovid.setBounds(211, 57, 52, 22);
 		getContentPane().add(cmbCovid);
 		
-		JLabel lblSintomas = new JLabel("\u00BFQu\u00E9 s\u00EDntomas padeci\u00F3?");
+		JLabel lblSintomas = new JLabel("¿Que sintomas padecio?");
 		lblSintomas.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		lblSintomas.setBounds(10, 100, 161, 14);
 		getContentPane().add(lblSintomas);
 		
-		chbPerGus = new JCheckBox("P\u00E9rdida del gusto");
+		chbPerGus = new JCheckBox("Perdida del gusto");
 		chbPerGus.setBounds(10, 171, 146, 23);
 		getContentPane().add(chbPerGus);
 		
@@ -152,7 +149,7 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		chbCanMal.setBounds(428, 134, 146, 23);
 		getContentPane().add(chbCanMal);
 		
-		chbSinS = new JCheckBox("Sin s\u00EDntomas");
+		chbSinS = new JCheckBox("Sin sintomas");
 		chbSinS.setBounds(428, 171, 109, 23);
 		getContentPane().add(chbSinS);
 		
@@ -161,34 +158,39 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		lblNivG.setBounds(10, 218, 124, 20);
 		getContentPane().add(lblNivG);
 		
-		rdbtnNewRadioButton = new JRadioButton("1-Ninguna");
-		rbtnNivG.add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton.setBounds(10, 255, 81, 23);
-		getContentPane().add(rdbtnNewRadioButton);
+		rdbtnNinguna = new JRadioButton("1-Ninguna");
+		rbtnNivG.add(rdbtnNinguna);
+		rdbtnNinguna.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnNinguna.setBounds(10, 255, 81, 23);
+		getContentPane().add(rdbtnNinguna);
+		rdbtnNinguna.setActionCommand("1");
 		
-		rdbtnNewRadioButton_1 = new JRadioButton("2-Leve");
-		rbtnNivG.add(rdbtnNewRadioButton_1);
-		rdbtnNewRadioButton_1.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton_1.setBounds(93, 255, 63, 23);
-		getContentPane().add(rdbtnNewRadioButton_1);
+		rdbtnLeve = new JRadioButton("2-Leve");
+		rbtnNivG.add(rdbtnLeve);
+		rdbtnLeve.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnLeve.setBounds(93, 255, 63, 23);
+		getContentPane().add(rdbtnLeve);
+		rdbtnLeve.setActionCommand("2");
 		
-		rdbtnNewRadioButton_2 = new JRadioButton("3-Media");
-		rbtnNivG.add(rdbtnNewRadioButton_2);
-		rdbtnNewRadioButton_2.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton_2.setBounds(158, 256, 72, 23);
-		getContentPane().add(rdbtnNewRadioButton_2);
+		rdbtnMedia = new JRadioButton("3-Media");
+		rbtnNivG.add(rdbtnMedia);
+		rdbtnMedia.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnMedia.setBounds(158, 256, 72, 23);
+		getContentPane().add(rdbtnMedia);
+		rdbtnMedia.setActionCommand("3");
 		
-		rdbtnNewRadioButton_3 = new JRadioButton("4-Alta");
-		rbtnNivG.add(rdbtnNewRadioButton_3);
-		rdbtnNewRadioButton_3.setFont(new Font("Tahoma", Font.PLAIN, 12));
-		rdbtnNewRadioButton_3.setBounds(232, 256, 63, 23);
-		getContentPane().add(rdbtnNewRadioButton_3);
+		rdbtnAlta = new JRadioButton("4-Alta");
+		rbtnNivG.add(rdbtnAlta);
+		rdbtnAlta.setFont(new Font("Tahoma", Font.PLAIN, 12));
+		rdbtnAlta.setBounds(232, 256, 63, 23);
+		getContentPane().add(rdbtnAlta);
+		rdbtnAlta.setActionCommand("4");
 		
-		rdbtnNewRadioButton_4 = new JRadioButton("5-Hospitalizaci\u00F3n");
-		rbtnNivG.add(rdbtnNewRadioButton_4);
-		rdbtnNewRadioButton_4.setBounds(296, 256, 130, 23);
-		getContentPane().add(rdbtnNewRadioButton_4);
+		rdbtnHospitalizacion = new JRadioButton("5-Hospitalizacion");
+		rbtnNivG.add(rdbtnHospitalizacion);
+		rdbtnHospitalizacion.setBounds(296, 256, 130, 23);
+		getContentPane().add(rdbtnHospitalizacion);
+		rdbtnHospitalizacion.setActionCommand("5");
 		
 		btnGuardar = new JButton("Guardar");
 		btnGuardar.setFont(new Font("Tahoma", Font.PLAIN, 14));
@@ -209,43 +211,106 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 		lblMsg.setBounds(157, 326, 269, 14);
 		getContentPane().add(lblMsg);
 		
-		
+		unenabledFields();
 	}
 	
 	@Override
 	public void hacerVisible() {
-		// TODO Auto-generated method stub
 		setVisible(true);
 	}
 
 	@Override
 	public void setControlador(CtrlEncuesta ce) {
+		cmbCovid.addActionListener(ce);
+		
 		chbSinS.addActionListener(ce);
+		chbSinS.setActionCommand("0");
+		
 		chbCanMal.addActionListener(ce);
+		
 		chbDolCab.addActionListener(ce);
+		
 		chbFiebre.addActionListener(ce);
+		
 		chbPerGus.addActionListener(ce);
+		
 		chbPerOlf.addActionListener(ce);
+		
 		chbSinRes.addActionListener(ce);
+		
 		chbTos.addActionListener(ce);
+		
 		btnGuardar.addActionListener(ce);
 		btnGuardar.setActionCommand("GUARDAR");
+		
 		btnLimpiar.addActionListener(ce);
 		btnLimpiar.setActionCommand("LIMPIAR");
+		
 		btnVerEn.addActionListener(ce);
 		btnVerEn.setActionCommand("VERE");
 	}
 
 	public Encuesta getEncuesta() {
-		// TODO 
 		int edad = (int)spnEdad.getValue();
 		String covid = (String) cmbCovid.getSelectedItem();
 		String sintomas[] = new String[8];
-		if(chbCanMal.isSelected() || chbDolCab.isSelected() || chbFiebre.isSelected() || chbPerGus.isSelected() || chbPerOlf.isSelected() || chbSinRes.isSelected() || chbTos.isSelected()) {
-			chbSinS.setSelected(false);
-		}
+		//Get the button selected and parse it to int
+		int nGravedad;
 		
-		return null;
+		if(covid.equalsIgnoreCase(Encuesta.HA_PASADO_COVID_RESP[0])) {
+			return new Encuesta(edad, covid);
+		}else{
+			if(rbtnNivG.getSelection() == null || (!chbCanMal.isSelected() && !chbDolCab.isSelected() && !chbFiebre.isSelected() && !chbPerGus.isSelected() && !chbPerOlf.isSelected() && !chbSinRes.isSelected()
+					&& !chbSinS.isSelected() && !chbTos.isSelected())) {
+				return null;
+			}else {
+				nGravedad = Integer.parseInt(rbtnNivG.getSelection().getActionCommand());
+				fillSymtoms(sintomas);
+				return new Encuesta(edad,covid,sintomas,nGravedad);
+			}
+		}
+	}
+
+	private void fillSymtoms(String[] sintomas) {
+		if(chbSinS.isSelected()) {
+			sintomas[0] = Encuesta.POSIBLES_SINTOMAS[0];
+		}else {
+			if(chbCanMal.isSelected()) {
+				sintomas[4] = Encuesta.POSIBLES_SINTOMAS[4];
+			}
+			if(chbDolCab.isSelected()) {
+				sintomas[3] = Encuesta.POSIBLES_SINTOMAS[3];
+			}
+			if(chbFiebre.isSelected()) {
+				sintomas[6] = Encuesta.POSIBLES_SINTOMAS[6];
+			}
+			if(chbPerGus.isSelected()) {
+				sintomas[5] = Encuesta.POSIBLES_SINTOMAS[5];
+			}
+			if(chbPerOlf.isSelected()) {
+				sintomas[2] = Encuesta.POSIBLES_SINTOMAS[2];
+			}
+			if(chbSinRes.isSelected()) {
+				sintomas[1] = Encuesta.POSIBLES_SINTOMAS[1];
+			}
+			if(chbTos.isSelected()) {
+				sintomas[7] = Encuesta.POSIBLES_SINTOMAS[7];
+			}
+		}
+	}
+	
+	public void unCheckSymtoms() {
+		chbCanMal.setSelected(false);
+		chbDolCab.setSelected(false);
+		chbFiebre.setSelected(false);
+		chbPerGus.setSelected(false);
+		chbPerOlf.setSelected(false);
+		chbSinRes.setSelected(false);
+		chbTos.setSelected(false);
+	}
+	
+	public void unCkeckSinS() {
+		chbSinS.setSelected(false);
 	}
 
 	public void showE(ArrayList<Encuesta> aE) {
@@ -254,6 +319,14 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 	}
 
 	public void clearE() {
+		unCheckSymtoms();
+		unCkeckSinS();
+		spnEdad.setValue(1);
+		cmbCovid.setSelectedIndex(0);
+		rbtnNivG.clearSelection();
+	}
+	
+	public void clearScrlP() {
 		dlmEncuesta.clear();
 	}
 	
@@ -266,5 +339,43 @@ public class VEncuesta extends JFrame implements IVEncuesta{
 				lblMsg.setText("");
 			}
 		}, 3000);
+	}
+	
+	public void unenabledFields() {
+		chbSinRes.setEnabled(false);
+	    chbPerOlf.setEnabled(false);
+	    chbDolCab.setEnabled(false);
+	    chbCanMal.setEnabled(false);
+	    chbPerGus.setEnabled(false);
+	    chbFiebre.setEnabled(false);
+	    chbTos.setEnabled(false);
+	    chbSinS.setEnabled(false);
+	    
+	    rdbtnAlta.setEnabled(false);
+	    rdbtnHospitalizacion.setEnabled(false);
+	    rdbtnLeve.setEnabled(false);
+	    rdbtnMedia.setEnabled(false);
+	    rdbtnNinguna.setEnabled(false);
+	}
+	
+	public void enabledFields() {
+		chbSinRes.setEnabled(true);
+	    chbPerOlf.setEnabled(true);
+	    chbDolCab.setEnabled(true);
+	    chbCanMal.setEnabled(true);
+	    chbPerGus.setEnabled(true);
+	    chbFiebre.setEnabled(true);
+	    chbTos.setEnabled(true);
+	    chbSinS.setEnabled(true);
+	    
+	    rdbtnAlta.setEnabled(true);
+	    rdbtnHospitalizacion.setEnabled(true);
+	    rdbtnLeve.setEnabled(true);
+	    rdbtnMedia.setEnabled(true);
+	    rdbtnNinguna.setEnabled(true);
+	}
+	
+	public String getCovid() {
+		return (String)cmbCovid.getSelectedItem();
 	}
 }
