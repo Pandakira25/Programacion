@@ -1,0 +1,5 @@
+CREATE TABLE "TablaPrueba" (
+	"ID"	INTEGER,
+	"Descripcion"	TEXT NOT NULL,
+	PRIMARY KEY("ID" AUTOINCREMENT)
+);
