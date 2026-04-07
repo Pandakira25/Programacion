@@ -5,7 +5,6 @@ public class Encuesta {
 	//Constantes
 	public static final String POSIBLES_SINTOMAS[] = {"Sin sintomas", "Síntomas respiratorios","Perdida del olfato", "Dolor de cabeza", "Cansancio/Malestar","Perdida del gusto", "Fiebre","Tos seca"};
 	
-	public static final int NIVELES_DE_GRAVEDAD [] = {1,2,3,4,5};
 	public static final String NIVELES_DE_GRAVEDAD_S []= {"Ninguna","Leve","Media","Alta","Hospitalizaación"};
 	
 	public static final String HA_PASADO_COVID_RESP []= {"No","Si"};
