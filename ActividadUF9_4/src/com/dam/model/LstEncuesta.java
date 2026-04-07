@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class LstEncuesta {
 	
-	ArrayList<Encuesta> lstEncuesta;
+	private ArrayList<Encuesta> lstEncuesta;
 	
 	public LstEncuesta() {
 		lstEncuesta = new ArrayList<Encuesta>();

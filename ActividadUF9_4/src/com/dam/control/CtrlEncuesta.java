@@ -24,7 +24,6 @@ public class CtrlEncuesta implements ActionListener {
 	
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 		String btn = e.getActionCommand();
 		if(e.getSource() instanceof JButton) {
 			buttonsActions(btn);
