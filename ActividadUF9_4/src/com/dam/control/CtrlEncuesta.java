@@ -15,7 +15,7 @@ import com.dam.view.VEncuesta;
 public class CtrlEncuesta implements ActionListener {
 	
 	LstEncuesta le = new LstEncuesta();
-	VEncuesta ve = new VEncuesta();
+	VEncuesta ve;
 	
 	public CtrlEncuesta(VEncuesta ve) {
 		this.ve=ve;
