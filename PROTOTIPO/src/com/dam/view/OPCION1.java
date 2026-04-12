@@ -14,8 +14,8 @@ import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
+//import javax.swing.JOptionPane;
 import javax.swing.JPanel;
-import javax.swing.JRadioButton;
 
 import com.dam.control.CtrlESeries;
 import com.dam.model.Encuesta;
@@ -45,7 +45,20 @@ public class OPCION1 extends JPanel implements IVPanels{
 	}
 	
 	public void clearE() {
+		/*
+		 * Component[] arrayComponentes = getComponents();
 		
+		for (Component component : arrayComponentes) {
+			if (component instanceof JCheckBox) {
+				((JCheckBox) component).setSelected(false);
+			}
+		}
+		 * */
 	}
+	
+	//public void mostrarMensaje(String mensaje) {
+		//JOptionPane.showMessageDialog(this, mensaje, "Resultado de la operación", JOptionPane.INFORMATION_MESSAGE);
+		
+	//}
 	
 }
