@@ -15,16 +15,14 @@ public class App
 		public void run() {
 			VLogin v = new VLogin();
 			VPrincipal vp = new VPrincipal();
-			
 			VRegistro vr = new VRegistro();
-			
-			vr.showWindow();
 			
 			v.showWindow();
 			
-			Ctrl c = new Ctrl(v,vp);
+			Ctrl c = new Ctrl(v,vp,vr);
 			
 			v.setCtrl(c);
+			vr.setCtrl(c);
 		}
 	});
     	

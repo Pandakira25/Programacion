@@ -6,21 +6,17 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPasswordField;
-import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
 import com.dam.control.Ctrl;
 import com.dam.model.Usuario;
-import javax.swing.SwingConstants;
 
-public class VLogin extends JFrame {
-	
+public class VRegistro extends JFrame {
 	public static final int WIDTH = 400;
 	public static final int HEIGHT = 250;
-	public static final String BTN_ACCEDER = "Acceder";
-	private static final String BTN_REGISTRARSE = "Registrarse";
+	public static final String BTN_OK = "Ok";
+	public static final String BTN_CANCEL = "Cancelar";
 	
 	public static int insetsR;
 	public static int insetsL;
@@ -29,18 +25,19 @@ public class VLogin extends JFrame {
 	public static int menuH;
 	
 	private JTextField txtUser;
-	private JPasswordField txtPassword;
-	private JButton btnAcceder;
-	private JButton btnRegistrarse;
+	private JButton btnOk;
+	private JTextField txtC;
+	private JTextField txtCC;
+	private JButton btnCancel;
 	
-	public VLogin() {
+	public VRegistro() {
 		configWindow();
 		
 		createComp();
 	}
 
 	private void configWindow() {
-		setTitle("Login");
+		setTitle("Registro");
 		
 		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		
@@ -52,13 +49,6 @@ public class VLogin extends JFrame {
 		insetsB = this.getInsets().bottom;
 		
 		centerWindow();
-		
-		createMenu();
-	}
-	
-	
-	private void createMenu() {
-		getContentPane().setLayout(null);
 	}
 
 	private void centerWindow() {
@@ -83,29 +73,38 @@ public class VLogin extends JFrame {
 		lblPassword.setBounds(30,65,120,20);
 		getContentPane().add(lblPassword);
 		
-		txtPassword = new JPasswordField();
-		txtPassword.setBounds(170,63,120,25);
-		txtPassword.setEchoChar('*');
-		txtPassword.setToolTipText("Introduce la contraseña");
-		getContentPane().add(txtPassword);
+		btnOk = new JButton(BTN_OK);
+		btnOk.setBounds(49, 145, 89, 23);
+		getContentPane().add(btnOk);
 		
-		btnAcceder = new JButton(BTN_ACCEDER);
-		btnAcceder.setBounds(180,99,100,25);
-		getContentPane().add(btnAcceder);
+		JLabel lblConfirmaC = new JLabel("Confirmar contrase\u00F1a");
+		lblConfirmaC.setBounds(30, 103, 120, 14);
+		getContentPane().add(lblConfirmaC);
 		
-		btnRegistrarse = new JButton("Registrarse");
-		btnRegistrarse.setHorizontalAlignment(SwingConstants.LEFT);
-		btnRegistrarse.setBounds(30, 100, 106, 23);
-		getContentPane().add(btnRegistrarse);
+		txtC = new JTextField();
+		txtC.setBounds(170, 64, 120, 20);
+		getContentPane().add(txtC);
+		txtC.setColumns(10);
+		
+		txtCC = new JTextField();
+		txtCC.setBounds(170, 100, 120, 20);
+		getContentPane().add(txtCC);
+		txtCC.setColumns(10);
+		
+		btnCancel = new JButton(BTN_CANCEL);
+		btnCancel.setBounds(182, 145, 89, 23);
+		getContentPane().add(btnCancel);
 		
 	}
 	
 	
 	public void setCtrl(Ctrl c) {
-		btnAcceder.setActionCommand(BTN_ACCEDER);
-		btnAcceder.addActionListener(c);
+		btnCancel.setActionCommand(BTN_CANCEL);
+		btnCancel.addActionListener(c);
 		
-		btnRegistrarse.setActionCommand(BTN_REGISTRARSE);
+		btnOk.setActionCommand(BTN_OK);
+		btnOk.addActionListener(c);
+		
 	}
 	
 	public Usuario getUser() {
@@ -116,7 +115,7 @@ public class VLogin extends JFrame {
 		if(usuario.isEmpty()) {
 			showError("Error con el usuario");
 		}else {
-			password = txtPassword.getText();
+			password = txtC.getText();
 			if(password.isEmpty()) {
 				showError("Error con la contraseña");
 			}else {
@@ -124,6 +123,22 @@ public class VLogin extends JFrame {
 			}
 		}
 		return user;
+	}
+	
+	public boolean isEqualPassword() {
+		if(txtC.getText().equals(txtCC.getText())) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+	
+	public boolean pwdNotEmpty() {
+		if(txtC.getText().isEmpty() || txtCC.getText().isEmpty()) {
+			return false;
+		}else {
+			return true;
+		}
 	}
 	
 	
