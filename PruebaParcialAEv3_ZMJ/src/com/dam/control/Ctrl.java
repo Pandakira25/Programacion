@@ -28,9 +28,9 @@ public class Ctrl implements ActionListener{
 		String btn = e.getActionCommand();
 		
 		if(e.getSource() instanceof JMenuItem) {
-			if(e.getSource().equals(vp.getOp1())) {
+			if(btn.equals(Ppal.VER)) {
 				vp.runPanel(cp);
-			}else if(e.getSource().equals(vp.getOp2())) {
+			}else if(btn.equals(Ppal.CERRAR)) {
 				int respuesta = JOptionPane.showConfirmDialog(cp, 
 						"Va a cerrar la aplicación ¿Desea continuar?", 
 						"Confirmación", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);

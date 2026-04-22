@@ -26,7 +26,9 @@ public class Ppal extends JFrame {
 	
 	private JScrollPane scrlCont;
 	private JMenuItem mnVRank;
+	public static final String VER = "ver";
 	private JMenuItem mnCerrar;
+	public static final String CERRAR = "cerrar";
 	
 	public Ppal() {
 		configWindow();
@@ -79,7 +81,9 @@ public class Ppal extends JFrame {
 	
 	public void setCtrl(Ctrl c) {
 		mnVRank.addActionListener(c);
+		mnVRank.setActionCommand(VER);
 		mnCerrar.addActionListener(c);
+		mnCerrar.setActionCommand(CERRAR);
 	}
 
 	public void showWindow() {
@@ -88,13 +92,5 @@ public class Ppal extends JFrame {
 	
 	public void runPanel(JPanel p) {
 		scrlCont.setViewportView(p);
-	}
-	
-	public JMenuItem getOp1() {
-		return mnVRank;
-	}
-	
-	public JMenuItem getOp2() {
-		return mnCerrar;
 	}
 }

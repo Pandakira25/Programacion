@@ -23,7 +23,6 @@ public class Index {
 				
 				cp.hideRank();
 				vp.showWindow();
-				
 			}
 		});
 	}
