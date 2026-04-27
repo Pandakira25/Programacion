@@ -29,6 +29,12 @@ public class TablaRestaurantesDAO {
 		acc = new AccessDBProp();
 	}
 	
+	/*TODO: - Voy a necesitar un select general y uno que sea específico recibiendo el prametro del where; en ambos casos que me devuelvan un arrayList de resturantes
+	 * 		- Delete recibiendo un restaurante
+	 * 		- Modificar recibiendo dos restaurantes, uno que es el original y otro que sea el modificado
+	 *      - */ 
+	
+	/*
 	public ArrayList<Restaurante> realizarSelect() {
 		//sentencia que queremos ejecutar: select * from TablaPrueba;
 		ArrayList<Restaurante> listaReg = new ArrayList<Restaurante>();
@@ -154,7 +160,5 @@ public class TablaRestaurantesDAO {
 		}
 		return result;
 	}
-
+	*/
 }
-
-//TODO metodo de update
