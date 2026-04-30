@@ -15,7 +15,7 @@ public class index {
 	public static void main(String[] args) {
 		TablaRestaurantesDAO tpp = new TablaRestaurantesDAO();
     	
-    	ArrayList<Restaurante> listaRes = tpp.realizarSelect();
+    	//ArrayList<Restaurante> listaRes = tpp.realizarSelect();
     	
     	VPrincipal vp = new VPrincipal();
     	VRegRes vr = new VRegRes();
@@ -26,6 +26,9 @@ public class index {
     	
     	vp.showWindow();
     	vp.setCtrl(c);
+    	vr.setCtrl(c);
+    	vm.setCtrl(c);
+    	vc.setCtrl(c);
 	}
 
 }

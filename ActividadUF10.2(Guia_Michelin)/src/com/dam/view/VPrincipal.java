@@ -1,5 +1,6 @@
 package com.dam.view;
 
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.JFrame;
@@ -22,7 +23,7 @@ public class VPrincipal extends JFrame {
 	public static final String MN_CON_RES = "Consulta de Restaurante";
 	
 	public static final int WIDTH = 600;
-	public static final int HEIGHT = 400;
+	public static final int HEIGHT = 500;
 	
 	public static int insetsR;
 	public static int insetsL;
@@ -60,7 +61,6 @@ public class VPrincipal extends JFrame {
 	
 	
 	private void createMenu() {
-		getContentPane().setLayout(null);
 		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
@@ -93,11 +93,7 @@ public class VPrincipal extends JFrame {
 
 	private void createComp() {
 		scrlCont = new JScrollPane();
-		getContentPane().setLayout(null);
-		
-		JLabel lblUser = new JLabel("Bienvenido yei");
-		lblUser.setBounds(175, 180, 250, 20);
-		getContentPane().add(lblUser);
+		getContentPane().add(scrlCont, BorderLayout.CENTER);
 		
 	}
 	

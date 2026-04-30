@@ -13,6 +13,7 @@ public class TablaRestaurantesDAO {
 
 	static final String NOM_TABLA = "RESTAURANTES";
 	static final String COL_ID = "ID";
+	static final String COL_NOM = "NOMBRE";
 	static final String COL_REG = "REGION";
 	static final String COL_CIUDAD = "CIUDAD";
 	static final String COL_DISTINCION = "DISTINCION";
@@ -32,45 +33,28 @@ public class TablaRestaurantesDAO {
 	/*TODO: - Voy a necesitar un select general y uno que sea específico recibiendo el prametro del where; en ambos casos que me devuelvan un arrayList de resturantes
 	 * 		- Delete recibiendo un restaurante
 	 * 		- Modificar recibiendo dos restaurantes, uno que es el original y otro que sea el modificado
-	 *      - */ 
+	 *      - La profe quiere que saquemos las regiones y eso de la bd */ 
 	
-	/*
-	public ArrayList<Restaurante> realizarSelect() {
-		//sentencia que queremos ejecutar: select * from TablaPrueba;
-		ArrayList<Restaurante> listaReg = new ArrayList<Restaurante>();
+	public ArrayList<String> getRegiones(){
+		ArrayList<String> regiones = new ArrayList<String>();
+		regiones.add("TODAS");
 		
-		String sentencia = "select * from " + NOM_TABLA;
+		String sen = "SELECT DISTINCT " + COL_REG + " FROM " + NOM_TABLA;
 		
 		Connection con = null;
 		Statement stmt = null;
 		ResultSet rslt = null;
 		
-		//1. Establecer la conexion
 		try {
 			con = acc.getConnection();
 			
-			//2. Crear el statement, el objeto que nos permitira ejecutar una sentencia sql
 			stmt = con.createStatement();
 			
-			//3.Ejecutar sentencia, como es un selec usamos excecuteQuery que devuelve un ResultSet
-			//ResultSet es una "coleccion" que contiene los registros resultado de la select
-			rslt = stmt.executeQuery(sentencia);
+			rslt = stmt.executeQuery(sen);
 			
-			//4.Obtener los datos recorriendo el resultSet
-			int id;
-			String desc;
 			while(rslt.next()) {
-				//id = rslt.getInt(1); //Posicion que ocupa la columna en la sentencia
-				id = rslt.getInt(COL_ID); 
-				
-				//desc = rslt.getString(2);
-				//desc = rslt.getString(COL_DESC);
-				
-				//5.Guardar los datos en por ejemplo un arrayList
-				//listaReg.add(new RegTablaPrueba(id, desc));
+				regiones.add(rslt.getString(1));
 			}
-			
-			//6. Liberar recursos con un finally
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -85,55 +69,65 @@ public class TablaRestaurantesDAO {
 			}
 		}
 		
-		return listaReg;
+		return regiones;
 	}
 	
-	public Restaurante realizarSelectId(int id) {
-		String sentencia = "select ";
-
-		//String sentencia2 = "select " + COL_ID + " from " + NOM_TABLA + " where " + COL_ID + " like ?";
+	public ArrayList<Restaurante> getConsulta(String region, String estrellas){
+		ArrayList<Restaurante> rest = new ArrayList<Restaurante>();
+		
+		String sen = "SELECT * FROM " + NOM_TABLA;
+		
+		if(region != "TODAS" && estrellas != "TODAS") {
+			sen += " WHERE " + COL_REG + " LIKE ? AND " + COL_DISTINCION + " LIKE ?";
+		}else if(region == "TODAS" && estrellas != "TODAS") {
+			sen += " WHERE " + COL_DISTINCION + " LIKE ?";
+		}else if(region != "TODAS" && estrellas == "TODAS") {
+			sen += " WHERE " + COL_REG + " LIKE ? ";
+		}
 		
 		Connection con = null;
-		PreparedStatement pstmt = null; //Usamos prepare statemnt por que nuestra sentencia depende del valor que venga como parámeto y por esta razon contendrá interrogaciones
+		PreparedStatement pstmt = null;
 		ResultSet rslt = null;
-		
-		Restaurante reg = null;
 		
 		try {
 			con = acc.getConnection();
 			
-			pstmt = con.prepareStatement(sentencia);
+			pstmt = con.prepareStatement(sen);
 			
-			//2.1 Completar/configurar la sentencia
-			pstmt.setInt(1, id); //Interrogacion por ejemplo para la descripcion pstmt.setString(2,desc)
-			
-			//si tenemos like ? pstmt.setString(2,desc + "%") filtrado por contener lo que nos llega por parámetro
+			if(region != "TODAS" && estrellas != "TODAS") {
+				pstmt.setString(1, region);
+				pstmt.setString(2, estrellas);
+			}else if(region == "TODAS" && estrellas != "TODAS") {
+				pstmt.setString(1, estrellas);
+			}else if(region != "TODAS" && estrellas == "TODAS") {
+				pstmt.setString(1, region);
+			}
 			
 			rslt = pstmt.executeQuery();
 			
-			if(rslt.next()) {
-				reg = new Restaurante(rslt.getInt(1),rslt.getString(2));
+			while(rslt.next()) {
+				rest.add(new Restaurante(rslt.getInt(COL_ID), rslt.getString(COL_NOM), rslt.getString(COL_REG), rslt.getString(COL_CIUDAD), rslt.getInt(COL_DISTINCION), rslt.getString(COL_DIRECCION), rslt.getDouble(COL_PRECIO_MIN), rslt.getDouble(COL_PRECIO_MAX), rslt.getString(COL_COCINA), rslt.getString(COL_TELEFONO), rslt.getString(COL_WEB)));
 			}
 			
 		}catch(Exception e) {
 			e.printStackTrace();
+			System.out.println("Error: se ha producido un error al establecer la conexion con la base de datos");
 		}finally {
 			try {
 				if(rslt != null) rslt.close();
 				if(pstmt != null) pstmt.close();
-				if(con != null) con.close();
-			}catch(SQLException e) {
-				e.getStackTrace();
+				if(con != null)con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
 		
-		return reg;
+		return rest;
 	}
 	
-	//Metodo para insertar un registro en la tabla 
-	public int realizarInsert(Restaurante reg) {
-		String sentencia = "insert into  values (?)";
-		int result = 0;
+	public String deleteRest(String nombre) {
+		
+		String sen = "DELETE FROM " + NOM_TABLA + " WHERE nombre = ?";
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
@@ -141,24 +135,27 @@ public class TablaRestaurantesDAO {
 		try {
 			con = acc.getConnection();
 			
-			pstmt = con.prepareStatement(sentencia);
+			pstmt = con.prepareStatement(sen);
 			
-			//2.1 Completar/configurar la sentencia
-			pstmt.setString(1, reg.getDesc());
+			pstmt.setString(1, nombre);
 			
+			int f = pstmt.executeUpdate();
 			
-			 result = pstmt.executeUpdate();
+			if (f > 0) {
+				return "Se ha eliminado el restaurante con exito";
+			}else {
+				return "Algo malo ocurrió";
+			}
 		}catch(Exception e) {
 			e.printStackTrace();
+			return "Error: se ha producido un error al establecer la conexion con la base de datos";
 		}finally {
 			try {
 				if(pstmt != null) pstmt.close();
-				if(con != null) con.close();
-			}catch(SQLException e) {
-				e.getStackTrace();
+				if(con != null)con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
 			}
 		}
-		return result;
 	}
-	*/
 }

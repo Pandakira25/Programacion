@@ -27,6 +27,12 @@ public class Restaurante {
 	
 	
 	//Getters
+	public int getDistincion() {
+		return distincion;
+	}
+	public String getNombre() {
+		return nombre;
+	}
 	public String getRegion() {
 		return region;
 	}
@@ -48,6 +54,6 @@ public class Restaurante {
 
 	//ToString
 	public String toString() {
-		return null;
+		return "ID: " + id + ", Nombre:" + nombre + ", Region: " + region + ", Ciudad: " + ciudad + ", Distincion: " + distincion + ", Direccion: " + direccion + ", PrecioMin: " + precioMin + ", PrecioMax: " + precioMax + ", Cocina: " + cocina + ", Telefono: " + telefono + ", Web:" + web;
 	}
 }
