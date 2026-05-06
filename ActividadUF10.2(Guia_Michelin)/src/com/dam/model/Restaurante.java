@@ -66,6 +66,9 @@ public class Restaurante {
 	public int getId() {
 		return id;
 	}
+	public String getWeb() {
+		return web;
+	}
 
 	//ToString
 	public String toString() {

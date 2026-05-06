@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 public class VModRes extends JPanel implements IPanels{
+	public static final String NAME = "VModRes";
 	
 	private static final int WIDTH = VPrincipal.WIDTH - VPrincipal.insetsL - VPrincipal.insetsR;
 	private static final int HEIGHT = VPrincipal.HEIGHT - VPrincipal.insetsT - VPrincipal.insetsB - VPrincipal.menuH;
@@ -21,6 +22,7 @@ public class VModRes extends JPanel implements IPanels{
 	
 	public VModRes() {
 		setSize(WIDTH,HEIGHT);
+		setName(NAME);
 		
 		createComp();
 	}
