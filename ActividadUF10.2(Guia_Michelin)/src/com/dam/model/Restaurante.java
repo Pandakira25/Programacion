@@ -25,7 +25,22 @@ public class Restaurante {
 		this.web = web;
 	}
 	
-	
+	public Restaurante(int distincion, String nombre, String region, String ciudad, String direccion, String cocina,
+			String telefono, String web, double precioMin, double precioMax) {
+		this.distincion = distincion;
+		this.nombre = nombre;
+		this.region = region;
+		this.ciudad = ciudad;
+		this.direccion = direccion;
+		this.cocina = cocina;
+		this.telefono = telefono;
+		this.web = web;
+		this.precioMin = precioMin;
+		this.precioMax = precioMax;
+	}
+
+
+
 	//Getters
 	public int getDistincion() {
 		return distincion;
