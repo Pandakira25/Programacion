@@ -158,4 +158,47 @@ public class TablaRestaurantesDAO {
 			}
 		}
 	}
+	
+	public int insertRest(Restaurante rest) {
+		String sen = "INSERT INTO " + NOM_TABLA + "(" + COL_NOM + "," + COL_REG + "," + COL_CIUDAD + "," + COL_DISTINCION + "," + COL_DIRECCION + "," + COL_PRECIO_MIN + "," + COL_PRECIO_MAX + "," + COL_COCINA + "," + COL_TELEFONO + "," + COL_WEB + ") VALUES(?,?,?,?,?,?,?,?,?,?) ";
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = acc.getConnection();
+			
+			pstmt = con.prepareStatement(sen);
+			
+			pstmt.setString(1, rest.getNombre());
+			pstmt.setString(2, rest.getRegion());
+			pstmt.setString(3, rest.getCiudad());
+			pstmt.setInt(4, rest.getDistincion());
+			pstmt.setString(5, rest.getDireccion());
+			pstmt.setDouble(6, rest.getPrecioMin());
+			pstmt.setDouble(7, rest.getPrecioMax());
+			pstmt.setString(8, rest.getCocina());
+			pstmt.setString(9, rest.getTelefono());
+			pstmt.setString(10, rest.getWeb());
+			
+			int f = pstmt.executeUpdate();
+			
+			return f;
+		}catch(Exception e) {
+			e.printStackTrace();
+			return 0;
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null)con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public Restaurante searchRest(String nombre) {
+		
+		return null;
+	}
 }

@@ -112,12 +112,13 @@ public class Ctrl implements ActionListener {
 				switch(ac) {
 				case BTN_SAVE_D_R:
 					if(vr.getRest() != null) {
-						//TODO: Hacer el insert del DAO
-						JOptionPane.showMessageDialog(vr, "Se ha registrado el restaurante con éxito", "Resultado de la operación", JOptionPane.INFORMATION_MESSAGE);
-					}else {
-						//TODO ver lo que retorna los campos vacíos y decidir si hacer un constructor sin los campos que no tienen verificación.
+						if(tr.insertRest(vr.getRest()) > 0) {
+							JOptionPane.showMessageDialog(vr, "Se ha registrado el restaurante con éxito", "Resultado de la operación", JOptionPane.INFORMATION_MESSAGE);
+							vr.clearD();
+						}else {
+							JOptionPane.showMessageDialog(vr, "Ha ocurrido un problema al insertar el nuevo restaurante","Error en el insert", JOptionPane.ERROR_MESSAGE);
+						}
 					}
-					
 					break;
 					
 				case BTN_WIPE_D:

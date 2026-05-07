@@ -30,9 +30,9 @@ public class VRegRes extends JPanel implements IPanels {
 	private JTextField txtMin;
 	private JTextField txtMax;
 	private JTextField txtWeb;
-	private JComboBox cmbReg;
+	private JComboBox<String> cmbReg;
 	private JSpinner spnDist;
-	private JComboBox cmbCocina;
+	private JComboBox<String> cmbCocina;
 	private JButton btnSv;
 	private JButton btnClr;
 
@@ -92,7 +92,8 @@ public class VRegRes extends JPanel implements IPanels {
 		txtDirec.setColumns(10);
 
 		spnDist = new JSpinner();
-		spnDist.setModel(new SpinnerNumberModel(Restaurante.DISTINCIONES[0], Restaurante.DISTINCIONES[0], Restaurante.DISTINCIONES[2], 1));
+		spnDist.setModel(new SpinnerNumberModel(Restaurante.DISTINCIONES[0], Restaurante.DISTINCIONES[0],
+				Restaurante.DISTINCIONES[2], 1));
 		spnDist.setBounds(90, 166, 30, 20);
 		JSpinner.DefaultEditor edit = (JSpinner.DefaultEditor) spnDist.getEditor();
 		edit.getTextField().setEditable(false);
@@ -179,43 +180,33 @@ public class VRegRes extends JPanel implements IPanels {
 				telefono = txtTel.getText(), web = txtWeb.getText();
 		String precioMinS = txtMin.getText(), precioMaxS = txtMax.getText();
 		double precioMin = 0, precioMax = 0;
-		boolean valid = true;
 
 		if (nombre.isEmpty()) {
 			showErr("Debe introducir el nombre del restaurante");
-			valid = false;
-		}
-
-		if (ciudad.isEmpty()) {
+			return null;
+		} else if (ciudad.isEmpty()) {
 			showErr("Debe introducir una ciudad");
-			valid = false;
-		}
-
-		if (precioMinS.isEmpty()) {
-			showErr("Debe introducir un precio minimo");
-			valid = false;
-		} else {
+			return null;
+		}else if(!precioMinS.isEmpty()) {
 			try {
 				precioMin = Double.parseDouble(txtMin.getText());
+				precioMax = Double.parseDouble(txtMax.getText());
+				if(!precioMaxS.isEmpty()) {
+					if (precioMin > precioMax) {
+						showErr("El precio min no puede ser mayor qeu el máximo");
+						return null;
+					}
+				}
 			} catch (NumberFormatException e) {
 				showErr("El precio min y máximo deben ser numéricos");
-				valid = false;
+				return null;
 			}
 		}
-		
-		if(precioMin > precioMax) {
-			showErr("Debe introducir el nombre del restaurante");
-			valid = false;
-		}
-		
-		if(valid) {
-			return new Restaurante(distincion, nombre, region, ciudad, direccion, cocina, telefono, web, precioMin,
-					precioMax);
-		}else {
-			return null;
-		}
+
+		return new Restaurante(distincion, nombre, region, ciudad, direccion, cocina, telefono, web, precioMin,
+				precioMax);
 	}
-	
+
 	public void clearD() {
 		txtNom.setText("");
 		txtCiu.setText("");
@@ -224,10 +215,10 @@ public class VRegRes extends JPanel implements IPanels {
 		txtMin.setText("");
 		txtTel.setText("");
 		txtWeb.setText("");
-		
+
 		cmbCocina.setSelectedIndex(0);
 		cmbReg.setSelectedIndex(0);
-		
+
 		spnDist.setValue(Restaurante.DISTINCIONES[0]);
 	}
 

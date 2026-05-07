@@ -69,6 +69,12 @@ public class Restaurante {
 	public String getWeb() {
 		return web;
 	}
+	public String getDireccion() {
+		return direccion;
+	}
+	public String getTelefono() {
+		return telefono;
+	}
 
 	//ToString
 	public String toString() {
