@@ -189,8 +189,8 @@ public class PRegistrarEmpresa extends JPanel implements IPaneles {
 			convenio = "SI";
 		}
 		
-		System.out.println(Empresa.validarCif(cif) + " " + Empresa.validarCorreo(emailR)
-				+ " " + Empresa.validarTelefono(tel) + " " + Empresa.validarWeb(web));
+		//System.out.println(Empresa.validarCif(cif) + " " + Empresa.validarCorreo(emailR)
+		//		+ " " + Empresa.validarTelefono(tel) + " " + Empresa.validarWeb(web));
 		if(Empresa.validarCif(cif) && Empresa.validarCorreo(emailR)
 				&& Empresa.validarTelefono(tel) && Empresa.validarWeb(web)) {
 			return new Empresa(cif,rs,dom,repre,emailR,convenio,numEmple,tel,web);

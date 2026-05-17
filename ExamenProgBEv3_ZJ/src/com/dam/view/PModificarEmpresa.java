@@ -185,8 +185,20 @@ public class PModificarEmpresa extends JPanel implements IPaneles {
 		 * 
 		 * Si los datos son válidos inicializar la variable empresa con ellos.
 		 */
+		String convenio = "NO";
+		if(chckFirmado.isSelected()) {
+			convenio = "SI";
+		}
 		
-		return empresa;
+		//System.out.println(Empresa.validarCif(cif) + " " + Empresa.validarCorreo(emailR)
+		//		+ " " + Empresa.validarTelefono(tel) + " " + Empresa.validarWeb(web));
+		if(Empresa.validarCif(cif) && Empresa.validarCorreo(emailR)
+				&& Empresa.validarTelefono(tel) && Empresa.validarWeb(web)) {
+			System.out.println("pm" + web);
+			return new Empresa(cif,rs,dom,repre,emailR,convenio,numEmple,tel,web);
+		}else {
+			return null;
+		}
 	}
 	
 	public void cargarDatos(Empresa empresa) {
@@ -198,6 +210,7 @@ public class PModificarEmpresa extends JPanel implements IPaneles {
 		chckFirmado.setSelected(empresa.getConvenio().equals("SI"));
 		spnNumEmpleados.setValue(empresa.getNumEmpleados()); 
 		txtTelefono.setText(empresa.getTelefono());
+		System.out.println(empresa.getWeb());
 		txtWeb.setText(empresa.getWeb());
 	}
 

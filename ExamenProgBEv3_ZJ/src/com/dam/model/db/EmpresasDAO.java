@@ -46,7 +46,7 @@ public class EmpresasDAO {
 			while(rslt.next()) {
 				emp.add(new Empresa(rslt.getString(COL_CIF), rslt.getString(COL_RZSL), rslt.getString(COL_DMO),
 						rslt.getString(COL_RL), rslt.getString(COL_CR), rslt.getString(COL_CNV), rslt.getInt(COL_NE),
-						rslt.getString(COL_TEL), rslt.getString(COL_TEL)));
+						rslt.getString(COL_TEL), rslt.getString(COL_WEB)));
 			}
 			
 		}catch(Exception e) {
@@ -103,7 +103,7 @@ public class EmpresasDAO {
 			while (rslt.next()) {
 				emp.add(new Empresa(rslt.getString(COL_CIF), rslt.getString(COL_RZSL), rslt.getString(COL_DMO),
 						rslt.getString(COL_RL), rslt.getString(COL_CR), rslt.getString(COL_CNV), rslt.getInt(COL_NE),
-						rslt.getString(COL_TEL), rslt.getString(COL_TEL)));
+						rslt.getString(COL_TEL), rslt.getString(COL_WEB)));
 			}
 
 		} catch (Exception e) {
@@ -147,7 +147,7 @@ public class EmpresasDAO {
 			if(rslt.next()) {
 				em = new Empresa(rslt.getString(COL_CIF), rslt.getString(COL_RZSL), rslt.getString(COL_DMO),
 						rslt.getString(COL_RL), rslt.getString(COL_CR), rslt.getString(COL_CNV), rslt.getInt(COL_NE),
-						rslt.getString(COL_TEL), rslt.getString(COL_TEL));
+						rslt.getString(COL_TEL), rslt.getString(COL_WEB));
 			}
 			
 		} catch (Exception e) {
@@ -224,6 +224,51 @@ public class EmpresasDAO {
 			
 			if (f > 0) {
 				return "Se ha insertado el restaurante con éxito";
+			}else {
+				return "Algo malo ocurrió";
+			}
+		}catch(Exception e) {
+			e.printStackTrace();
+			return "Error: se ha producido un error al establecer la conexion con la base de datos";
+		}finally {
+			try {
+				if(pstmt != null) pstmt.close();
+				if(con != null)con.close();
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+	public String updateEmpresa(Empresa em) {
+		String sen = "UPDATE EMPRESAS SET RAZON_SOCIAL = ?, DOMICILIO = ?, "
+				+ "REPRESENTANTE_LEGAL = ?, CORREO_RL = ?, CONVENIO = ?, "
+				+ "NUM_EMPLEADOS = ?, TELEFONO = ?, WEB = ? WHERE CIF = ?";
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		
+		try {
+			con = acc.getConnection();
+			
+			pstmt = con.prepareStatement(sen);
+			
+			
+			pstmt.setString(1, em.getRazonSocial());
+			pstmt.setString(2, em.getDomicilio());
+			pstmt.setString(3, em.getRepresentante());
+			pstmt.setString(4, em.getCorreoRL());
+			pstmt.setString(5, em.getConvenio());
+			pstmt.setInt(6, em.getNumEmpleados());
+			pstmt.setString(7, em.getTelefono());
+			System.out.println(em.getWeb()+ " dao");
+			pstmt.setString(8, em.getWeb());
+			pstmt.setString(9, em.getCif());
+			
+			int f = pstmt.executeUpdate();
+			
+			if (f > 0) {
+				return "Se ha modificado el restaurante con éxito";
 			}else {
 				return "Algo malo ocurrió";
 			}

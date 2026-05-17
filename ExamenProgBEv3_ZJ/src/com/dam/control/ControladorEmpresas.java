@@ -38,7 +38,7 @@ public class ControladorEmpresas implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		String ac = e.getActionCommand();
 		/*
-		 * TODO: implementar lo necesario para que funcione la aplicación Si se pulsa la
+		 *  implementar lo necesario para que funcione la aplicación Si se pulsa la
 		 * opción de menú de Registrar --> se cargará el panel de registro Si se pulsa
 		 * la opción de menú de Consultar --> se cargará el panel de consulta Si se
 		 * pulsa el botón guardar del panel de registro --> invocar a registrar Si se
@@ -80,6 +80,7 @@ public class ControladorEmpresas implements ActionListener {
 				case Textos.BTN_GUARDAR:
 					//System.out.println("guardar de modificar");
 					//Me dio pereza hacer las validaciones
+					modificar();
 					break;
 				case Textos.BTN_CANCELAR:
 					vpe.cargarPanel(pc);
@@ -106,6 +107,12 @@ public class ControladorEmpresas implements ActionListener {
 		 * válidos realizar un update en la base de datos de los datos de la empresa por
 		 * cif dar feedback al usuario de cómo ha ido la operación
 		 */
+		if(pm.obtenerDatos() == null) {
+			JOptionPane.showMessageDialog(pm, "Uno de los datos no es válido", "Error", JOptionPane.ERROR_MESSAGE);
+		}else {
+			JOptionPane.showMessageDialog(pm, edao.updateEmpresa(pm.obtenerDatos()),"Resultado de la operación", JOptionPane.INFORMATION_MESSAGE);
+			vpe.cargarPanel(pc);
+		}
 	}
 
 	private void abrirModificar() {
@@ -119,7 +126,7 @@ public class ControladorEmpresas implements ActionListener {
 
 	private void eliminar() {
 		/*
-		 * TODO: Si hay un registro seleccionado en la tabla Confirmar que desea
+		 *  Si hay un registro seleccionado en la tabla Confirmar que desea
 		 * continuar con el borrado Obtener el valor del model que ocupa la fila
 		 * seleccionada y la columna 0, que corresponderá al cif eliminar de la base de
 		 * datos los datos de la empresa por su cif dar feedback al usuario de cómo ha
@@ -144,7 +151,7 @@ public class ControladorEmpresas implements ActionListener {
 
 	private void registrar() {
 		/*
-		 * TODO: Obtener datos validados de la empresa del panel de registro Si los
+		 *  Obtener datos validados de la empresa del panel de registro Si los
 		 * datos son válidos realizar un insert en la base de datos de los datos de la
 		 * empresa dar feedback al usuario de cómo ha ido la operación Si la operación
 		 * ha tenido éxito se limpiarán los componentes.

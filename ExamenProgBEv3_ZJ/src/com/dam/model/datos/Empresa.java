@@ -184,15 +184,18 @@ public class Empresa {
 		int n;
 		
 		if(telefono.length() != 9) {
+			System.out.println("longitud no");
 			esValido = false;
 		}else {
 			try {
 				n = Integer.parseInt(telefono);
-				if(telefono.charAt(0) != '6' || telefono.charAt(0) != '7' || telefono.charAt(n) != 8
-						|| telefono.charAt(0) != '9') {
+				if(telefono.charAt(0) != '6' && telefono.charAt(0) != '7' && telefono.charAt(0) != '8'
+						&& telefono.charAt(0) != '9') {
+					System.out.println("num inicial no");
 					esValido = false;
 				}
 			} catch (NumberFormatException e) {
+				System.out.println("numberformat");
 				esValido = false;
 			}
 		}
